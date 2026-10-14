@@ -499,5 +499,172 @@ body {
         height: 3px;
         background-color: #8f7872;
     }
-
 }
+
+.order-page .body-content {
+    display: grid;
+    grid-template-columns: minmax(250px, 0.85fr) minmax(0, 1.15fr);
+    align-items: start;
+    gap: clamp(1rem, 2.5vw, 2rem);
+    width: min(1120px, calc(100% - 3rem));
+    margin: 2rem auto 3rem;
+    padding: 0;
+    scale: 1;
+}
+
+    .order-page .cart-container,
+    .order-page .form-section {
+        width: 100%;
+        max-width: none;
+        height: auto;
+        min-height: 390px;
+        padding: clamp(1.25rem, 2.5vw, 2rem);
+        border: 1px solid rgba(99, 76, 68, 0.2);
+        border-radius: 12px;
+        background: #fffdfa;
+        box-shadow: 0 8px 24px rgba(42, 32, 28, 0.1);
+    }
+
+    .order-page .cart-container h1,
+    .order-page .form-section h2 {
+        margin: 0 0 1.25rem;
+        color: #634c44;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(1.4rem, 2vw, 1.7rem);
+        text-align: left;
+    }
+
+    .order-page .cart-items {
+        min-height: 160px;
+        max-height: 300px;
+        padding: 0.75rem;
+        border: 1px solid rgba(99, 76, 68, 0.16);
+        border-radius: 8px;
+        background: #fff;
+    }
+
+    .order-page .cart-items > p {
+        margin: 0.25rem;
+        color: #76645d;
+        line-height: 1.6;
+    }
+
+    .order-page .cart-item {
+        margin: 0;
+        padding: 0.75rem 0.25rem;
+        border-bottom: 1px solid rgba(99, 76, 68, 0.14);
+    }
+
+    .order-page .cart-item p {
+        margin: 0.25rem 0;
+        color: #634c44;
+        font-size: 0.95rem;
+        overflow-wrap: anywhere;
+    }
+
+    .order-page .cart-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.75rem;
+        margin-top: 1rem;
+    }
+
+    .order-page .cart-actions > a,
+    .order-page .cart-actions > button {
+        display: flex;
+        min-height: 44px;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 0.7rem 0.85rem;
+        border: 1px solid #634c44;
+        border-radius: 7px;
+        background: #634c44;
+        color: #f9f6f2;
+        font: inherit;
+        font-size: 0.9rem;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
+    }
+
+    .order-page .cart-actions > a:hover,
+    .order-page .cart-actions > button:hover {
+        border-color: #4c6c64;
+        background: #4c6c64;
+        transform: translateY(-1px);
+    }
+
+    .order-page .form-section {
+        overflow: visible;
+    }
+
+    .order-page .form-section h2 {
+        margin-bottom: 1.5rem;
+    }
+
+    .order-page .form-group {
+        margin-bottom: 1.1rem;
+    }
+
+    .order-page .form-group label {
+        margin-bottom: 0.4rem;
+        color: #634c44;
+        font-size: 0.95rem;
+        font-weight: 700;
+    }
+
+    .order-page .form-group input {
+        display: block;
+        width: 100%;
+        min-height: 46px;
+        padding: 0.7rem 0.8rem;
+        border: 1px solid rgba(99, 76, 68, 0.35);
+        border-radius: 7px;
+        background: #fff;
+        color: #342a26;
+        font: inherit;
+        transition: border-color 160ms ease, box-shadow 160ms ease;
+    }
+
+    .order-page .form-group input:focus {
+        border-color: #4c6c64;
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(76, 108, 100, 0.16);
+    }
+
+    .order-page .form-section button {
+        width: 100%;
+        min-height: 48px;
+        margin-top: 0.25rem;
+        border-radius: 7px;
+        background: #4c6c64;
+        font-weight: 700;
+        transition: background-color 160ms ease, transform 160ms ease;
+    }
+
+    .order-page .form-section button:hover {
+        background: #3d5750;
+        transform: translateY(-1px);
+    }
+
+    @media (max-width: 768px) {
+        .order-page .body-content {
+            grid-template-columns: minmax(0, 1fr);
+            width: min(560px, calc(100% - 2rem));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .order-page .cart-container,
+        .order-page .form-section {
+            min-height: 0;
+        }
+    }
+
+    @media (max-width: 380px) {
+        .order-page .cart-actions {
+            grid-template-columns: 1fr;
+        }
+    }
