@@ -3,74 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page - VitalyTea </title>
+    <meta name="theme-color" content="#f9f6f2">
+    <meta name="description" content="Discover Vitaly Tea: quality printing services, delicious drinks, and a cozy place to unwind in Manila.">
+    <title>Vitaly Tea | Printing, Drinks &amp; More</title>
     <link rel="stylesheet" href="styles/stylesindex.css">
     <link rel="icon" type="image/x-icon" href="images/LOGO2.png">
     <script defer src="script/scriptindex.js"></script>
 </head>
-    <body style="user-select: none;" draggable="false">
-        <div style="user-select: none;" draggable="false" id="loader-container">
-            <iframe src="loader.html" style="width: 100%; height: 100vh; border: none;"></iframe>
+<body>
+    <nav class="navbar" aria-label="Main navigation">
+        <a class="logo" href="index.html" aria-label="Vitaly Tea home">
+            <img src="images/headerlogo.png" alt="Vitaly Tea">
+        </a>
+        <div class="nav-links" id="site-navigation">
+            <a href="html/services.html">Services</a>
+            <a href="html/menu.html">Menu</a>
+            <a href="html/order.html">Order</a>
+            <a href="html/about.html">About</a>
+            <a href="html/contact.html">Contact us</a>
         </div>
-        <nav class="navbar">
-            <div class="logo">
-                <a href="index.html">
-                    <img style="user-select: none;" draggable="false" src="images/headerlogo.png">
-                </a>
-            </div>
-            <div class="nav-links" style="user-select: none;" draggable="false">
-                <a href="html/services.html">SERVICES</a>
-                <a href="html/menu.html">MENU</a>
-                <a href="html/order.html">ORDER</a>
-                <a href="html/about.html">ABOUT</a>
-                <a href="html/contact.html">CONTACT US</a>
-            </div>
-                            <div class="hamburger" onclick="toggleMenu()">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-        </nav>
-        <div class="content">
-            <img style="user-select: none;" draggable="false" class="welcome-image" src="images/homepage/wtv.png" alt="Welcome Text">
-            <p style="user-select: none;" draggable="false" class="p1">Our products and services offer a lot more that you could think of.
-                From printing different kinds of materials and papers, bindings and stitching and even more.
-                Here at Vitaly Tea, we offer all that, plus a cozy nook where you can sit, relax, and wait for your printing job to be finished.
-                And do not forget to grab our delicious mouthwatering drinks too.
-            </p>
-            <div class="btn-container">
-                <a href="html/services.html">
-                    <button class="explore-btn">Explore!</button>
-                </a>
-            </div>
-            </div>
-        <img class="fixed-image" style="user-select: none;" draggable="false" src="images/homepage/hompag.png">
-        
-        <footer class="footer">
-            <div class="footer-container">
-                <div class="footer-section">
-                    <h3>About Us</h3>
-                    <p>Your go-to spot for quality printing services and delicious drinks. Relax and unwind while we handle your printing needs.</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Contact</h3>
-                    <p>Email: contact@vitalytea.com</p>
-                    <p>Phone: +63 966 703 6969 </p>
-                    <p>Address: Padre Paredes St, Sampaloc, Manila, 1015 Metro Manila (For educational purposes only)</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Follow Us</h3>
-                    <div class="social-icons">
-                        <a href="#"><img src="images/facebook.webp" alt="Facebook"></a>
-                        <a href="#"><img src="images/instagram.webp" alt="Instagram"></a>
-                        <a href="#"><img src="images/twitter.webp" alt="Twitter"></a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Vitaly Tea. All Rights Reserved.</p>
-            </div>
-        </footer>
+        <button class="hamburger" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
 
-    </body>
-    </html>
+    <main>
+        <section class="hero" aria-labelledby="welcome-heading">
+            <img class="hero-art" src="images/homepage/hompag.png" alt="" fetchpriority="high">
+            <div class="hero-products" aria-hidden="true">
+                <span class="hero-product hero-product-one"><img src="images/menu/hd/cap.png" alt=""></span>
+                <span class="hero-product hero-product-two"><img src="images/menu/cd/camac.png" alt=""></span>
+                <span class="hero-product hero-product-three"><img src="images/menu/cd/brownsugg.png" alt=""></span>
+                <span class="hero-product hero-product-four"><img src="images/menu/hd/hothcho.png" alt=""></span>
+                <span class="hero-product hero-product-five"><img src="images/menu/cd/cncc.png" alt=""></span>
+                <span class="hero-product hero-product-six"><img src="images/menu/cd/match.png" alt=""></span>
+                <span class="hero-product hero-product-seven"><img src="images/menu/cd/strawb.png" alt=""></span>
+                <span class="hero-product hero-product-eight"><img src="images/menu/hd/espp.png" alt=""></span>
+                <span class="hero-product hero-product-nine"><img src="images/menu/cd/javac.png" alt=""></span>
+                <span class="hero-product hero-product-ten"><img src="images/menu/cd/cbrw.png" alt=""></span>
+                <span class="hero-product hero-product-eleven"><img src="images/menu/hd/cvwm.png" alt=""></span>
+                <span class="hero-product hero-product-twelve"><img src="images/menu/cd/strawb.png" alt=""></span>
+            </div>
+            <div class="hero-copy">
+                <h1 class="visually-hidden" id="welcome-heading">Welcome to Vitaly Tea</h1>
+                <img class="welcome-image" src="images/homepage/wtv.png" alt="" fetchpriority="high">
+                <p class="hero-description">
+                    More than you might expect from one cozy stop. Get printing, binding, and stitching for a wide range of materials, then settle in with a delicious drink while we take care of your project.
+                </p>
+                <a class="explore-btn" href="html/services.html">Explore our services <span aria-hidden="true">→</span></a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" id="contact">
+        <div class="footer-container">
+            <section class="footer-section footer-about" aria-labelledby="footer-about-heading">
+                <h2 id="footer-about-heading">A little about us</h2>
+                <p>Your go-to spot for quality printing and delicious drinks. Relax and unwind while we take care of your printing needs.</p>
+            </section>
+            <section class="footer-section footer-contact" aria-labelledby="footer-contact-heading">
+                <h2 id="footer-contact-heading">Come say hello</h2>
+                <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=contact%40vitalytea.com">contact@vitalytea.com</a>
+                <a href="tel:+639667036969">+63 966 703 6969</a>
+                <a href="https://maps.app.goo.gl/7jKdA47HiwyaYrTX8" target="_blank" rel="noopener noreferrer">
+                    Padre Paredes St, Sampaloc, Manila, 1015 Metro Manila
+                </a>
+            </section>
+            <section class="footer-section footer-social" aria-labelledby="footer-social-heading">
+                <h2 id="footer-social-heading">Follow along</h2>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.4 21v-8.2h2.8l.4-3.2h-3.2v-2c0-.9.3-1.5 1.6-1.5h1.7V3.2c-.3 0-1.3-.2-2.5-.2-2.5 0-4.2 1.5-4.2 4.3v2.3H7.2v3.2H10V21h3.4Z"/></svg>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle class="social-dot" cx="17.7" cy="6.7" r="1"/></svg>
+                    </a>
+                    <a href="#" aria-label="Twitter">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.2 6.1a7.2 7.2 0 0 1-2.1.6 3.7 3.7 0 0 0 1.6-2 7.3 7.3 0 0 1-2.3.9 3.6 3.6 0 0 0-6.2 3.3 10.3 10.3 0 0 1-7.5-3.8 3.6 3.6 0 0 0 1.1 4.8 3.6 3.6 0 0 1-1.6-.4v.1a3.6 3.6 0 0 0 2.9 3.5 3.6 3.6 0 0 1-1.6.1 3.6 3.6 0 0 0 3.4 2.5 7.3 7.3 0 0 1-5.4 1.5 10.3 10.3 0 0 0 5.6 1.6c6.7 0 10.4-5.5 10.4-10.3v-.5a7.4 7.4 0 0 0 1.7-1.9Z"/></svg>
+                    </a>
+                </div>
+            </section>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Vitaly Tea. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
