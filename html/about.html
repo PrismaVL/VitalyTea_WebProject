@@ -5,100 +5,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - VitalyTea</title>
     <link rel="stylesheet" href="../styles/stylesabout.css">
+    <link rel="stylesheet" href="../styles/site-shell.css">
     <link rel="icon" type="image/x-icon" href="../images/LOGO2.png">
-    <script defer src="../script/scriptabout.js"></script>
+    <script defer src="../script/site-shell.js"></script>
 </head>
-<div>
-<div style="user-select: none;" draggable="false" id="loader-container">
-    <iframe src="loader.html" style="width: 100%; height: 100vh; border: none;"></iframe>
-</div>
-    <header style="user-select: none;" draggable="false" class="navbar">
-        <nav class="navbar">
-            <div class="logo">
-                <a href="../index.html">
-                    <img style="user-select: none;" draggable="false" src="../images/headerlogo.png">
-                </a>
-            </div>
-            <div class="nav-links">
-                <a href="services.html">SERVICES</a>
-                <a href="menu.html">MENU</a>
-                <a href="order.html">ORDER</a>
-                <a href="about.html">ABOUT</a>
-                <a href="contact.html">CONTACT US</a>
-            </div>
-            <div class="hamburger" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-    </header>
+<body class="about-page">
+    <nav class="navbar" aria-label="Main navigation">
+        <a class="logo" href="../index.html" aria-label="Vitaly Tea home">
+            <img src="../images/headerlogo.png" alt="Vitaly Tea">
+        </a>
+        <div class="nav-links" id="site-navigation">
+            <a href="services.html">Services</a>
+            <a href="menu.html">Menu</a>
+            <a href="order.html">Order</a>
+            <a href="about.html" aria-current="page">About</a>
+            <a href="contact.html">Contact us</a>
+        </div>
+        <button class="hamburger" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
     <div id="bgAboutUs">
-        <img style="user-select: none;" draggable="false" style="user-select: none;" draggable="false" id="bgAU" src="../images/about/ABOUT US.png">
+        <img id="bgAU" src="../images/about/ABOUT US.png" alt="About Vitaly Tea">
     </div>
-    <div style="user-select: none;" draggable="false" id="invi-line"></div>
-    <body>
-        <main class="main" style="user-select: none;" draggable="false">
-            <p style="user-select: none;" class="p1"> <br>
-                We are a team of four passionate students from <b>FEU Institute of Technology</b>— <b>Sophia Calalay, Ping-Wei Chen, <br>
-                Christian Molina, and Jaymard Licas</b>. This website is a project for our <b>Advanced Web Design </b> subject, where we <br>
-                apply our skills in design and development to create a seamless and engaging user experience. Through this <br>
-                platform, we aim to <b>showcase our creativity, technical expertise, and dedication to web development</b>. <br><br><br>
-            </p>
+    <div id="invi-line"></div>
 
-            <div id="secPart">
-                <div id="sqr1"><img style="user-select: none;" draggable="false" src="../images/about/CafeInterior.png" alt="Cafe Interior"></div>
-                <div id="sqr2"><img style="user-select: none;" draggable="false" src="../images/about/AboutUsPrint.png" alt="About Us Print"></div>
-                <div class="text-content">
-                    <h3 class="hDocu">HEY! HI! HELLO!</h3>
-                    <p class="p2">
-                        Our journey in building this website has been filled with challenges, 
-                        but through perseverance and teamwork, we have overcome every obstacle
-                        making this vision a reality.
-                    </p>
-                </div>
-            </div>
-            
-            <div id="thirdPart">
-                <h3 class="hDocu">MEET THE DEVELOPERS</h3>
-                <div class="devPhoto">
-                    <div id="Sophia"><img style="user-select: none;" draggable="false" src="../images/about/Pia.png" alt="Sophia"></div>
-                    <div id="PingWei"><img style="user-select: none;" draggable="false" src="../images/about/PING.png" alt="Ping-Wei"></div>
-                    <div id="Christian"><img style="user-select: none;" draggable="false" src="../images/about/Josua.png" alt="Christian"></div>
-                    <div id="Jaymard"><img style="user-select: none;" draggable="false" src="../images/about/Jay.png" alt="Jaymard"></div>
-                </div>
-            </div>
+    <main class="main">
+        <p class="p1">
+            We are a team of four passionate students from <b>FEU Institute of Technology</b>— <b>Sophia Calalay, Ping-Wei Chen,
+            Christian Molina, and Jaymard Licas</b>. This website is a project for our <b>Advanced Web Design</b> subject, where we
+            apply our skills in design and development to create a seamless and engaging user experience. Through this
+            platform, we aim to <b>showcase our creativity, technical expertise, and dedication to web development</b>.
+        </p>
 
-            <div id="fourthPart">
-                <a href="credits.html" class="credBut">Go to Credits</a>
+        <div id="thirdPart">
+            <h3 class="hDocu">MEET THE DEVELOPERS</h3>
+            <div class="devPhoto">
+                <div id="Sophia"><img src="../images/about/Pia.png" alt="Sophia"></div>
+                <div id="PingWei"><img src="../images/about/PING.png" alt="Ping-Wei"></div>
+                <div id="Christian"><img src="../images/about/Josua.png" alt="Christian"></div>
+                <div id="Jaymard"><img src="../images/about/Jay.png" alt="Jaymard"></div>
             </div>
-        </main>
+        </div>
 
-        <footer class="footer">
-            <div class="footer-container">
-                <div class="footer-section">
-                    <h3>About Us</h3>
-                    <p>Your go-to spot for quality printing services and delicious drinks. Relax and unwind while we handle your printing needs.</p>
+        <div id="fourthPart">
+            <a href="credits.html" class="credBut">Go to Credits</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <section class="footer-section">
+                <h2>A little about us</h2>
+                <p>Your go-to spot for quality printing and delicious drinks. Relax and unwind while we take care of your printing needs.</p>
+            </section>
+            <section class="footer-section footer-contact">
+                <h2>Come say hello</h2>
+                <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=contact%40vitalytea.com">contact@vitalytea.com</a>
+                <a href="tel:+639667036969">+63 966 703 6969</a>
+                <a href="https://maps.app.goo.gl/7jKdA47HiwyaYrTX8" target="_blank" rel="noopener noreferrer">Padre Paredes St, Sampaloc, Manila, 1015 Metro Manila</a>
+            </section>
+            <section class="footer-section footer-social">
+                <h2>Follow along</h2>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.4 21v-8.2h2.8l.4-3.2h-3.2v-2c0-.9.3-1.5 1.6-1.5h1.7V3.2c-.3 0-1.3-.2-2.5-.2-2.5 0-4.2 1.5-4.2 4.3v2.3H7.2v3.2H10V21h3.4Z"/></svg></a>
+                    <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle class="social-dot" cx="17.7" cy="6.7" r="1"/></svg></a>
+                    <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.2 6.1a7.2 7.2 0 0 1-2.1.6 3.7 3.7 0 0 0 1.6-2 7.3 7.3 0 0 1-2.3.9 3.6 3.6 0 0 0-6.2 3.3 10.3 10.3 0 0 1-7.5-3.8 3.6 3.6 0 0 0 1.1 4.8 3.6 3.6 0 0 1-1.6-.4v.1a3.6 3.6 0 0 0 2.9 3.5 3.6 3.6 0 0 1-1.6.1 3.6 3.6 0 0 0 3.4 2.5 7.3 7.3 0 0 1-5.4 1.5 10.3 10.3 0 0 0 5.6 1.6c6.7 0 10.4-5.5 10.4-10.3v-.5a7.4 7.4 0 0 0 1.7-1.9Z"/></svg></a>
                 </div>
-                <div class="footer-section">
-                    <h3>Contact</h3>
-                    <p>Email: contact@vitalytea.com</p>
-                    <p>Phone: +63 966 703 6969 </p>
-                    <p>Address: Padre Paredes St, Sampaloc, Manila, 1015 Metro Manila</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Follow Us</h3>
-                    <div class="social-icons">
-                        <a href="#"><img style="user-select: none;" draggable="false" src="../images/facebook.webp" alt="Facebook"></a>
-                        <a href="#"><img style="user-select: none;" draggable="false" src="../images/instagram.webp" alt="Instagram"></a>
-                        <a href="#"><img style="user-select: none;" draggable="false" src="../images/twitter.webp" alt="Twitter"></a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Vitaly Tea. All Rights Reserved.</p>
-            </div>
-        </footer>
-    </body>
-</div>
-    </html>
+            </section>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Vitaly Tea. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
