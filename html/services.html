@@ -3,88 +3,206 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services - VitalyTea</title>
+    <meta name="theme-color" content="#f9f6f2">
+    <meta name="description" content="Explore Vitaly Tea printing, binding, laminating, and cutting services in Manila.">
+    <title>Printing &amp; More | Vitaly Tea Services</title>
     <link rel="stylesheet" href="../styles/stylesservices.css">
     <link rel="icon" href="../images/LOGO2.png">
     <script defer src="../script/scriptservices.js"></script>
 </head>
-<body style="user-select: none;" draggable="false">
-    <div style="user-select: none;" draggable="false" id="loader-container">
-        <iframe src="loader.html" style="width: 100%; height: 100vh; border: none;"></iframe>
-    </div>
-    <nav class="navbar">
-        <div class="logo">
-            <a href="../index.html">
-                <img style="user-select: none;" draggable="false" src="../images/headerlogo.png">
-            </a>
+<body>
+    <nav class="navbar" aria-label="Main navigation">
+        <a class="logo" href="../index.html" aria-label="Vitaly Tea home">
+            <img src="../images/headerlogo.png" alt="Vitaly Tea">
+        </a>
+        <div class="nav-links" id="site-navigation">
+            <a href="services.html" aria-current="page">Services</a>
+            <a href="menu.html">Menu</a>
+            <a href="order.html">Order</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact us</a>
         </div>
-        <div class="nav-links" style="user-select: none;" draggable="false">
-            <a href="services.html">SERVICES</a>
-            <a href="menu.html">MENU</a>
-            <a href="order.html">ORDER</a>
-            <a href="about.html">ABOUT</a>
-            <a href="contact.html">CONTACT US</a>
-        </div>
-        <div class="hamburger" onclick="toggleMenu()">
+        <button class="hamburger" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-navigation">
             <span></span>
             <span></span>
             <span></span>
-        </div>
+        </button>
     </nav>
 
     <main class="services-container">
-        <div class="services-grid">
-            <div class="service large1" id="digital-printing">
-                <img style="user-select: none;" draggable="false" src="../images/services/printing.png" alt="Digital Printing">
-            </div>
-    
-            <div class="service large2" id="binding">
-                <img style="user-select: none;" draggable="false" src="../images/services/binding.png" alt="Binding">
-            </div>
+        <section class="services-intro" aria-labelledby="services-heading">
+            <p class="eyebrow">Made for your next idea</p>
+            <h1 id="services-heading">Print, finish, <span>and make it yours.</span></h1>
+            <p>From crisp everyday prints to polished finishing touches, find the service your project needs.</p>
+        </section>
 
-            <div class="service-column">
-                <div class="service small1" id="laminating">
-                    <img style="user-select: none;" draggable="false" src="../images/services/laminating.png" alt="Laminating">
+        <nav class="services-grid" aria-label="Jump to a service">
+            <a class="service service-printing" href="#digital-printing">
+                <img src="../images/services/printing.png" alt="">
+                <span class="service-overlay" aria-hidden="true"></span>
+                <span class="service-label"><span>01 / Print</span><strong>Digital printing</strong><span class="service-action">View details <span aria-hidden="true">↓</span></span></span>
+            </a>
+
+            <a class="service service-binding" href="#binding">
+                <img src="../images/services/binding.png" alt="">
+                <span class="service-overlay" aria-hidden="true"></span>
+                <span class="service-label"><span>02 / Finish</span><strong>Binding</strong><span class="service-action">View details <span aria-hidden="true">↓</span></span></span>
+            </a>
+
+            <a class="service service-laminating" href="#laminating">
+                <img src="../images/services/laminating.png" alt="">
+                <span class="service-overlay" aria-hidden="true"></span>
+                <span class="service-label"><span>03 / Protect</span><strong>Laminating</strong><span class="service-action">View details <span aria-hidden="true">↓</span></span></span>
+            </a>
+
+            <a class="service service-cutting" href="#cutting">
+                <img src="../images/services/cutting.png" alt="">
+                <span class="service-overlay" aria-hidden="true"></span>
+                <span class="service-label"><span>04 / Shape</span><strong>Cutting</strong><span class="service-action">View details <span aria-hidden="true">↓</span></span></span>
+            </a>
+        </nav>
+
+        <section class="service-details" aria-label="Service details">
+            <article class="service-detail" id="digital-printing" aria-labelledby="printing-heading">
+                <div class="service-detail-heading">
+                    <p class="eyebrow">01 / Print</p>
+                    <h2 id="printing-heading">Digital printing</h2>
+                    <p>Choose the paper finish and ink that best suit the look and feel of your project.</p>
                 </div>
-    
-                <div class="service small2" id="cutting">
-                    <img style="user-select: none;" draggable="false" src="../images/services/cutting.png" alt="Cutting">
+                <div class="detail-group">
+                    <h3>Paper stocks</h3>
+                    <div class="detail-grid">
+                        <article class="detail-card">
+                            <img src="../images/services/glossy.avif" alt="Glossy paper finish">
+                            <h4>Glossy</h4>
+                            <p>Perfect for vibrant, high-resolution images, glossy paper enhances colors and details. Ideal for photographs, brochures, and high-quality prints.</p>
+                        </article>
+                        <article class="detail-card">
+                            <img src="../images/services/matte.avif" alt="Matte paper finish">
+                            <h4>Matte</h4>
+                            <p>With a smooth, non-reflective finish, matte paper suits text-heavy documents, professional presentations, and posters where readability matters.</p>
+                        </article>
+                        <article class="detail-card">
+                            <img src="../images/services/textured.webp" alt="Textured paper finish">
+                            <h4>Textured</h4>
+                            <p>Add a tactile touch to invitations, special announcements, and artistic projects with textured paper.</p>
+                        </article>
+                    </div>
                 </div>
-            </div>
-        </div>
+                <div class="detail-group">
+                    <h3>Ink stocks</h3>
+                    <div class="detail-grid">
+                        <article class="detail-card">
+                            <img src="../images/services/hewlett.jpg" alt="Hewlett Packard ink">
+                            <h4>Hewlett Packard</h4>
+                            <p>Known for high-quality output and reliability, HP inks help deliver crisp and clear prints.</p>
+                        </article>
+                        <article class="detail-card">
+                            <img src="../images/services/epson.jpg" alt="Epson ink">
+                            <h4>Epson</h4>
+                            <p>Renowned for vibrant colors and long-lasting prints, Epson inks offer quality for photos and graphics.</p>
+                        </article>
+                        <article class="detail-card">
+                            <img src="../images/services/canon.jpg" alt="Canon ink">
+                            <h4>Canon</h4>
+                            <p>Canon inks deliver sharp text and rich, detailed images for a wide range of printing needs.</p>
+                        </article>
+                    </div>
+                </div>
+            </article>
+
+            <article class="service-detail" id="binding" aria-labelledby="binding-heading">
+                <div class="service-detail-heading">
+                    <p class="eyebrow">02 / Finish</p>
+                    <h2 id="binding-heading">Binding</h2>
+                    <p>Bring pages together with a binding style suited to booklets, reports, and everyday documents.</p>
+                </div>
+                <div class="detail-grid">
+                    <article class="detail-card">
+                        <img src="../images/services/saddlestitch.jpg" alt="Saddle stitch binding">
+                        <h4>Saddle stitch</h4>
+                        <p>A cost-effective and durable option for booklets, brochures, and catalogs.</p>
+                    </article>
+                    <article class="detail-card">
+                        <img src="../images/services/heatedspine.jpg" alt="Heated spine binding">
+                        <h4>Heated spine</h4>
+                        <p>Create professional-looking books, reports, and manuals with a polished finish.</p>
+                    </article>
+                    <article class="detail-card">
+                        <img src="../images/services/wir.webp" alt="Wire binding">
+                        <h4>Wire binding</h4>
+                        <p>Ideal for presentations, manuals, and notebooks, and lets documents lie flat when open.</p>
+                    </article>
+                </div>
+            </article>
+
+            <article class="service-detail" id="laminating" aria-labelledby="laminating-heading">
+                <div class="service-detail-heading">
+                    <p class="eyebrow">03 / Protect</p>
+                    <h2 id="laminating-heading">Laminating</h2>
+                    <p>Protect and finish your materials with a laminate that complements your design.</p>
+                </div>
+                <div class="detail-grid detail-grid-two">
+                    <article class="detail-card">
+                        <img src="../images/services/glosslaminate.png" alt="Glossy laminate finish">
+                        <h4>Glossy laminate</h4>
+                        <p>A shiny finish that enhances colors, making it a great choice for posters and presentations.</p>
+                    </article>
+                    <article class="detail-card">
+                        <img src="../images/services/mattlaminate.jpg" alt="Matte laminate finish">
+                        <h4>Matte laminate</h4>
+                        <p>A smooth, non-reflective finish that works well for professional materials.</p>
+                    </article>
+                </div>
+            </article>
+
+            <article class="service-detail" id="cutting" aria-labelledby="cutting-heading">
+                <div class="service-detail-heading">
+                    <p class="eyebrow">04 / Shape</p>
+                    <h2 id="cutting-heading">Cutting</h2>
+                    <p>Get a neat finish with cuts sized for your project or shaped to your specifications.</p>
+                </div>
+                <div class="detail-grid detail-grid-two">
+                    <article class="detail-card">
+                        <img src="../images/services/pcut.jpg" alt="Precision paper cutting">
+                        <h4>Precision cutting</h4>
+                        <p>Careful cutting to a range of sizes and shapes for your project needs.</p>
+                    </article>
+                    <article class="detail-card">
+                        <img src="../images/services/customcut.jpg" alt="Custom-shaped paper cutting">
+                        <h4>Custom cutting</h4>
+                        <p>Custom shapes and sizes tailored to the needs of your specific project.</p>
+                    </article>
+                </div>
+            </article>
+        </section>
     </main>
+
     <footer class="footer">
         <div class="footer-container">
-            <div class="footer-section">
-                <h3>About Us</h3>
-                <p>Your go-to spot for quality printing services and delicious drinks. Relax and unwind while we handle your printing needs.</p>
-            </div>
-            <div class="footer-section">
-                <h3>Contact</h3>
-                <p>Email: contact@vitalytea.com</p>
-                <p>Phone: +63 966 703 6969 </p>
-                <p>Address: Padre Paredes St, Sampaloc, Manila, 1015 Metro Manila</p>
-            </div>
-            <div class="footer-section">
-                <h3>Follow Us</h3>
+            <section class="footer-section">
+                <h2>A little about us</h2>
+                <p>Your go-to spot for quality printing and delicious drinks. Relax and unwind while we take care of your printing needs.</p>
+            </section>
+            <section class="footer-section footer-contact">
+                <h2>Come say hello</h2>
+                <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=contact%40vitalytea.com">contact@vitalytea.com</a>
+                <a href="tel:+639667036969">+63 966 703 6969</a>
+                <a href="https://maps.app.goo.gl/7jKdA47HiwyaYrTX8" target="_blank" rel="noopener noreferrer">Padre Paredes St, Sampaloc, Manila, 1015 Metro Manila</a>
+            </section>
+            <section class="footer-section footer-social">
+                <h2>Follow along</h2>
                 <div class="social-icons">
-                    <a href="#"><img style="user-select: none;" draggable="false" src="../images/facebook.webp" alt="Facebook"></a>
-                    <a href="#"><img style="user-select: none;" draggable="false" src="../images/instagram.webp" alt="Instagram"></a>
-                    <a href="#"><img style="user-select: none;" draggable="false" src="../images/twitter.webp" alt="Twitter"></a>
+                    <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.4 21v-8.2h2.8l.4-3.2h-3.2v-2c0-.9.3-1.5 1.6-1.5h1.7V3.2c-.3 0-1.3-.2-2.5-.2-2.5 0-4.2 1.5-4.2 4.3v2.3H7.2v3.2H10V21h3.4Z"/></svg></a>
+                    <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle class="social-dot" cx="17.7" cy="6.7" r="1"/></svg></a>
+                    <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.2 6.1a7.2 7.2 0 0 1-2.1.6 3.7 3.7 0 0 0 1.6-2 7.3 7.3 0 0 1-2.3.9 3.6 3.6 0 0 0-6.2 3.3 10.3 10.3 0 0 1-7.5-3.8 3.6 3.6 0 0 0 1.1 4.8 3.6 3.6 0 0 1-1.6-.4v.1a3.6 3.6 0 0 0 2.9 3.5 3.6 3.6 0 0 1-1.6.1 3.6 3.6 0 0 0 3.4 2.5 7.3 7.3 0 0 1-5.4 1.5 10.3 10.3 0 0 0 5.6 1.6c6.7 0 10.4-5.5 10.4-10.3v-.5a7.4 7.4 0 0 0 1.7-1.9Z"/></svg></a>
                 </div>
-            </div>
+            </section>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 Vitaly Tea. All Rights Reserved.</p>
+            <p>&copy; 2025 Vitaly Tea. All rights reserved.</p>
         </div>
     </footer>
-    
-    <div id="popup-container" class="popup-container">
-        <div class="popup-content">
-            <button id="back-btn">X</button>
-            <div id="popup-text"></div>
-        </div>
-    </div>
-    
+
 </body>
 </html>
