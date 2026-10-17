@@ -12,7 +12,7 @@ if (!account_is_authenticated()) {
 
 try {
     $statement = account_db()->prepare(
-        'SELECT first_name, last_name, phone, address, city, postal_code
+        'SELECT first_name, last_name, phone, address, city
          FROM users WHERE id = :id LIMIT 1'
     );
     $statement->execute(['id' => $_SESSION['account_user_id']]);
@@ -41,6 +41,5 @@ echo json_encode([
     'phone' => $profile['phone'] ?? '',
     'address' => $profile['address'] ?? '',
     'city' => $profile['city'] ?? '',
-    'postalCode' => $profile['postal_code'] ?? '',
     'cities' => account_cities(),
 ], JSON_THROW_ON_ERROR);

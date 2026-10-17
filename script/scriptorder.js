@@ -72,7 +72,7 @@ function displayCart() {
 
 function updateCheckoutFields() {
     const isPickup = getDeliverySelection()?.value === "pickup";
-    ["address", "postalCode", "city"].forEach((id) => {
+    ["address", "city"].forEach((id) => {
         document.getElementById(id).required = !isPickup;
     });
 
@@ -105,7 +105,6 @@ async function populateAccountDetails() {
         document.getElementById("name").value = account.fullName;
         document.getElementById("phone").value = account.phone;
         document.getElementById("address").value = account.address;
-        document.getElementById("postalCode").value = account.postalCode;
         const city = document.getElementById("city");
         account.cities.forEach((name) => {
             const option = document.createElement("option");
@@ -215,7 +214,7 @@ document.getElementById("orderForm").addEventListener("submit", (event) => {
 
     const address = delivery.value === "pickup"
         ? "Store Pickup"
-        : [formData.get("address"), formData.get("city"), formData.get("postalCode")]
+        : [formData.get("address"), formData.get("city")]
             .filter(Boolean)
             .join(", ");
     const receiptDetails = `

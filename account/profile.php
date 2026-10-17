@@ -8,7 +8,7 @@ $welcome = isset($_GET['welcome']) && $_GET['welcome'] === '1';
 
 try {
     $statement = account_db()->prepare(
-        'SELECT id, first_name, last_name, email, phone, address, city, postal_code, created_at
+        'SELECT id, first_name, last_name, email, phone, address, city
          FROM users WHERE id = :id LIMIT 1'
     );
     $statement->execute(['id' => $_SESSION['account_user_id']]);
@@ -34,7 +34,6 @@ if ($profile && $_SERVER['REQUEST_METHOD'] === 'POST') {
         'phone' => account_post('phone'),
         'address' => account_post('address'),
         'city' => account_post('city'),
-        'postal_code' => account_post('postal_code'),
     ];
 
     if (!account_csrf_is_valid()) {
@@ -55,10 +54,8 @@ if ($profile && $_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($values['address'] === '') {
         $errors[] = 'Street address is required.';
     }
-    foreach (['address' => 190, 'postal_code' => 20] as $field => $limit) {
-        if (mb_strlen($values[$field]) > $limit) {
-            $errors[] = ucfirst(str_replace('_', ' ', $field)) . " must be no longer than {$limit} characters.";
-        }
+    if (mb_strlen($values['address']) > 190) {
+        $errors[] = 'Street address must be no longer than 190 characters.';
     }
 
     if ($errors === []) {
@@ -66,7 +63,7 @@ if ($profile && $_SERVER['REQUEST_METHOD'] === 'POST') {
             $update = account_db()->prepare(
                 'UPDATE users
                  SET first_name = :first_name, last_name = :last_name, phone = :phone,
-                     address = :address, city = :city, postal_code = :postal_code
+                     address = :address, city = :city
                  WHERE id = :id'
             );
             $update->execute([
@@ -75,7 +72,6 @@ if ($profile && $_SERVER['REQUEST_METHOD'] === 'POST') {
                 'phone' => $values['phone'],
                 'address' => $values['address'],
                 'city' => $values['city'],
-                'postal_code' => $values['postal_code'] !== '' ? $values['postal_code'] : null,
                 'id' => $profile['id'],
             ]);
             $_SESSION['account_user_name'] = $values['first_name'];
@@ -102,10 +98,6 @@ require __DIR__ . '/layout-top.php';
                     <h1 id="account-heading">My profile</h1>
                     <p class="account-intro">Keep your contact and delivery details up to date.</p>
                 </div>
-                <form method="post" action="logout.php">
-                    <input type="hidden" name="csrf_token" value="<?= account_escape(account_csrf_token()) ?>">
-                    <button class="account-secondary-button" type="submit">Sign out</button>
-                </form>
             </div>
 
             <?php if ($welcome): ?>
@@ -140,13 +132,9 @@ require __DIR__ . '/layout-top.php';
                         <input id="email" type="email" value="<?= account_escape($profile['email']) ?>" readonly aria-describedby="email-help">
                         <small id="email-help">Email is used to sign in and cannot be changed here.</small>
                     </div>
-                    <div class="account-field account-field-full">
+                    <div class="account-field">
                         <label for="phone">Philippine phone number</label>
                         <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" pattern="\+63[0-9]{9,10}" maxlength="14" placeholder="+639171234567" value="<?= account_escape($profile['phone']) ?>" required>
-                    </div>
-                    <div class="account-field account-field-full">
-                        <label for="address">Street address</label>
-                        <input id="address" name="address" type="text" autocomplete="street-address" maxlength="190" value="<?= account_escape($profile['address']) ?>" required>
                     </div>
                     <div class="account-field">
                         <label for="city">City / municipality</label>
@@ -157,9 +145,9 @@ require __DIR__ . '/layout-top.php';
                             <?php endforeach; ?>
                         </select>
                     </div>
-                    <div class="account-field">
-                        <label for="postal_code">Postal code <span>Optional</span></label>
-                        <input id="postal_code" name="postal_code" type="text" autocomplete="postal-code" maxlength="20" value="<?= account_escape($profile['postal_code']) ?>">
+                    <div class="account-field account-field-full">
+                        <label for="address">Street address</label>
+                        <input id="address" name="address" type="text" autocomplete="street-address" maxlength="190" value="<?= account_escape($profile['address']) ?>" required>
                     </div>
                 </div>
                 <button class="account-primary-button" type="submit">Save profile</button>

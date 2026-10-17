@@ -7,4 +7,5 @@ header('Cache-Control: no-store, private');
 echo json_encode([
     'authenticated' => account_is_authenticated(),
     'name' => account_is_authenticated() ? ($_SESSION['account_user_name'] ?? '') : '',
+    'csrfToken' => account_is_authenticated() ? account_csrf_token() : '',
 ], JSON_THROW_ON_ERROR);
