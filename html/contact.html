@@ -6,7 +6,7 @@
     <title>Contact Us - VitalyTea</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles/stylescontact.css">
     <link rel="stylesheet" href="../styles/site-shell.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
@@ -34,34 +34,63 @@
     </nav>
 
     <main class="container-wrapper">
-        <div class="contact-container">
-            <div id="map-container">
-                <div id="map" style="width: 100%; height: 300px; border-radius: 8px;"></div>
-            </div>
-            <div class="form-contact-container">
-                <div class="feedback-form">
-                    <h2>Feedback Form</h2>
-                    <form action="submit_feedback.php" method="post">
-                        <label for="name">Name:</label>
-                        <input type="text" id="name" name="name" required>
+        <section class="contact-page-content" aria-labelledby="contact-page-title">
+            <header class="contact-intro">
+                <p class="contact-eyebrow">We’re here for you</p>
+                <h1 id="contact-page-title">Let’s stay in touch</h1>
+                <p>Questions about our drinks, printing services, or your next visit? Send us a note or find us in Sampaloc.</p>
+            </header>
 
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" required>
+            <div class="contact-layout">
+                <section class="location-card" aria-labelledby="location-heading">
+                    <div class="card-heading">
+                        <div>
+                            <p class="card-eyebrow">Visit us</p>
+                            <h2 id="location-heading">Find Vitaly Tea</h2>
+                        </div>
+                        <span class="location-badge">Manila, Philippines</span>
+                    </div>
+                    <div id="map" role="application" aria-label="Map showing the Vitaly Tea location"></div>
+                    <div class="location-footer">
+                        <p><span class="location-pin" aria-hidden="true">●</span> Padre Paredes St, Sampaloc, Manila, 1015 Metro Manila</p>
+                        <a href="https://maps.app.goo.gl/7jKdA47HiwyaYrTX8" target="_blank" rel="noopener noreferrer">Get directions <span aria-hidden="true">↗</span></a>
+                    </div>
+                </section>
 
-                        <label for="message">Message:</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
+                <div class="contact-sidebar">
+                    <section class="contact-details-container" aria-labelledby="contact-details-heading">
+                        <p class="card-eyebrow">Say hello</p>
+                        <h2 id="contact-details-heading">We’d love to hear from you</h2>
+                        <a class="contact-method" href="tel:+639667036969">
+                            <span class="contact-method-icon" aria-hidden="true">☎</span>
+                            <span><small>Call us</small><strong>+63 966 703 6969</strong></span>
+                        </a>
+                        <a class="contact-method" href="mailto:contact@vitalytea.com">
+                            <span class="contact-method-icon" aria-hidden="true">✉</span>
+                            <span><small>Email us</small><strong>contact@vitalytea.com</strong></span>
+                        </a>
+                    </section>
 
-                        <button type="submit">Submit</button>
-                    </form>
+                    <section class="feedback-form" aria-labelledby="feedback-heading">
+                        <p class="card-eyebrow">A note from you</p>
+                        <h2 id="feedback-heading">Send us a message</h2>
+                        <p class="form-intro">Share a question or feedback and we’ll be happy to hear it.</p>
+                        <form action="submit_feedback.php" method="post">
+                            <label for="name">Your name</label>
+                            <input type="text" id="name" name="name" autocomplete="name" placeholder="e.g. Alex Santos" required>
+
+                            <label for="email">Email address</label>
+                            <input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com" required>
+
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="4" placeholder="How can we help?" required></textarea>
+
+                            <button type="submit">Send message <span aria-hidden="true">→</span></button>
+                        </form>
+                    </section>
                 </div>
-                <div class="contact-details-container">
-                    <h2>Contact Us</h2>
-                    <p><strong>Telephone:</strong> (122) 7509-7890</p>
-                    <p><strong>Email:</strong> <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=contact%40vitalytea.com">contact@vitalytea.com</a></p>
-                    <p><strong>Address:</strong> <a href="https://maps.app.goo.gl/7jKdA47HiwyaYrTX8" target="_blank" rel="noopener noreferrer">Padre Paredes St, Sampaloc, Manila, 1015 Metro Manila</a></p>
-                </div>
             </div>
-        </div>
+        </section>
     </main>
 
     <footer class="footer">
@@ -91,10 +120,11 @@
     </footer>
 
     <script>
-        const map = L.map('map').setView([14.604370, 120.988483], 19);
+        const map = L.map('map', { scrollWheelZoom: false }).setView([14.604370, 120.988483], 17);
 
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+            attribution: '&copy; <a href="https://www.esri.com/">Esri</a> | &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>',
+            maxZoom: 19
         }).addTo(map);
 
         L.marker([14.604370, 120.988483]).addTo(map)
