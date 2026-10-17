@@ -148,7 +148,7 @@ button:focus-visible {
 }
 
 main {
-    flex: 1;
+    flex: 0 0 auto;
 }
 
 .hero {

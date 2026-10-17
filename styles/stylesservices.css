@@ -164,9 +164,9 @@ button:focus-visible {
 }
 
 .services-container {
-    flex: 1;
+    flex: 0 0 auto;
     width: 100%;
-    padding: clamp(3.5rem, 8vh, 6.5rem) clamp(1.25rem, 5vw, 5rem) clamp(4rem, 8vh, 6rem);
+    padding: clamp(3.5rem, 8vh, 6.5rem) clamp(1.25rem, 5vw, 5rem) clamp(1.5rem, 3vh, 2.5rem);
     background:
         radial-gradient(ellipse at 12% 18%, rgba(143, 120, 114, 0.08), transparent 28rem),
         radial-gradient(ellipse at 90% 55%, rgba(76, 108, 100, 0.08), transparent 30rem),
@@ -670,7 +670,7 @@ button:focus-visible {
     }
 
     .services-container {
-        padding: 3.5rem 1.25rem 4rem;
+        padding: 3.5rem 1.25rem 1.5rem;
     }
 
     .services-intro {

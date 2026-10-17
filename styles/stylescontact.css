@@ -21,9 +21,9 @@ body.contact-page::-webkit-scrollbar {
 }
 
 .container-wrapper {
-    flex: 1;
+    flex: 0 0 auto;
     width: 100%;
-    padding: clamp(2.5rem, 6vw, 5rem) clamp(1.25rem, 5vw, 4.5rem);
+    padding: clamp(2.5rem, 6vw, 5rem) clamp(1.25rem, 5vw, 4.5rem) clamp(1.25rem, 2.5vw, 2rem);
 }
 
 .contact-page-content {
@@ -345,7 +345,7 @@ body.contact-page::-webkit-scrollbar {
 
 @media (max-width: 580px) {
     .container-wrapper {
-        padding: 2rem 1rem 2.5rem;
+        padding: 2rem 1rem 1.25rem;
     }
 
     .contact-intro {

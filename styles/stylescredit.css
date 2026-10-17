@@ -16,10 +16,10 @@
 }
 
 .credits-main {
-    flex: 1;
+    flex: 0 0 auto;
     width: min(100%, 1120px);
     margin: 0 auto;
-    padding: clamp(2rem, 4vw, 3rem) clamp(1.25rem, 4vw, 3rem);
+    padding: clamp(2rem, 4vw, 3rem) clamp(1.25rem, 4vw, 3rem) 1.5rem;
 }
 
 .credits-intro {
@@ -172,7 +172,7 @@
 }
 
 .credits-page .footer {
-    margin-top: auto;
+    margin-top: 0;
 }
 
 @keyframes credits-arrive {

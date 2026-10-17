@@ -34,7 +34,7 @@ html, body {
 
 .menu-page .footer {
     width: 100% !important;
-    margin: auto 0 0 0 !important;
+    margin: 1.5rem 0 0 0 !important;
 }
 
 /* Design Tokens for Menu Page */
@@ -157,7 +157,7 @@ body.menu-page input {
     gap: clamp(1.25rem, 2.5vw, 2.25rem);
     max-width: 1320px;
     width: 94%;
-    margin: 1.5rem auto 5.5rem auto;
+    margin: 1.5rem auto 2rem auto;
     align-items: stretch;
     position: relative;
     z-index: 1;

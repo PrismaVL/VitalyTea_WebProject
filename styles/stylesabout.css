@@ -666,7 +666,7 @@ body{
 .about-page .main {
     width: min(100%, 1240px);
     margin: 0 auto;
-    padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1rem, 4vw, 3rem) 1.5rem;
+    padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1rem, 4vw, 3rem) 0.5rem;
 }
 
 .about-page .about-intro {
