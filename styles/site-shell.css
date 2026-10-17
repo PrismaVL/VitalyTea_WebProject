@@ -6,6 +6,15 @@
     --shell-green: #4c6c64;
 }
 
+* {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}
+
 .navbar {
     position: relative;
     z-index: 5;
@@ -14,7 +23,9 @@
     justify-content: space-between;
     gap: 2rem;
     width: 100%;
+    height: auto;
     min-height: 78px;
+    margin: 0;
     padding: 0 clamp(1.25rem, 3vw, 3rem);
     background: rgba(249, 246, 242, 0.96);
     box-shadow: 0 5px 18px rgba(42, 32, 28, 0.13);
@@ -296,6 +307,7 @@
 @media (max-width: 900px) {
     .navbar {
         gap: 1rem;
+        width: 100%;
     }
 
     .nav-links {
@@ -304,6 +316,11 @@
 
     .nav-links a {
         font-size: 0.82rem;
+    }
+
+    .navbar .hamburger {
+        display: none;
+        position: static;
     }
 
     .footer-container {
@@ -338,7 +355,7 @@
         width: 170px;
     }
 
-    .hamburger {
+    .navbar .hamburger {
         display: block;
         position: static;
     }
