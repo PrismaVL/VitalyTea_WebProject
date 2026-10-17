@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+:root {
+    --font-display: "DM Serif Display", Georgia, "Times New Roman", serif;
+    --font-body: "DM Sans", "Trebuchet MS", "Lucida Sans Unicode", Arial, sans-serif;
+}
+
 body {
     background-color: #F9F6F2;
     display: flex;
@@ -52,7 +57,7 @@ body {
 .nav-links a {
     text-decoration: none;
     font-size: 2vh;
-    font-family: 'Georgia', serif;
+    font-family: var(--font-body);
     color: #634C44;
     font-weight: bold;
     transition: color 0.3s ease-in-out;
@@ -237,7 +242,7 @@ body {
 }
 
 .footer p {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: var(--font-body);
 }
 
 .footer-container {
@@ -393,7 +398,7 @@ body {
     }
     
     .footer p {
-        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-family: var(--font-body);
     }
     
     .footer-container {
@@ -529,7 +534,7 @@ body {
     .order-page .form-section h2 {
         margin: 0 0 1.25rem;
         color: #634c44;
-        font-family: Georgia, "Times New Roman", serif;
+        font-family: var(--font-display);
         font-size: clamp(1.4rem, 2vw, 1.7rem);
         text-align: left;
     }
@@ -1038,4 +1043,22 @@ body {
     .order-page .cart-items {
         max-height: 360px;
     }
+}
+
+.order-page {
+    font-family: var(--font-body);
+}
+
+.order-page :is(h1, h2, h3, h4) {
+    font-family: var(--font-display);
+}
+
+.order-page input,
+.order-page textarea,
+.order-page button {
+    font-family: var(--font-body);
+}
+
+.order-page .navbar .nav-links a {
+    font-family: var(--font-body);
 }
