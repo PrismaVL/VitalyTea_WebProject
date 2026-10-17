@@ -1,4 +1,5 @@
 :root {
+    --shell-font-display: "DM Serif Display", Georgia, "Times New Roman", serif;
     --shell-cream: #f9f6f2;
     --shell-plum: #634c60;
     --shell-brown: #634c44;
@@ -55,10 +56,10 @@
     position: relative;
     padding: 0.5rem 0;
     color: var(--shell-brown);
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: var(--shell-font-display);
     font-size: 0.95rem;
     font-weight: 700;
-    letter-spacing: 0.025em;
+    letter-spacing: 0.05em;
     text-decoration: none;
     text-transform: uppercase;
     transition: color 180ms ease;

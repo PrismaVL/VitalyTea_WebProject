@@ -1,5 +1,6 @@
 :root {
     color-scheme: light;
+    --font-display: "DM Serif Display", Georgia, "Times New Roman", serif;
     --cream: #f9f6f2;
     --plum: #634c60;
     --brown: #634c44;
@@ -83,10 +84,10 @@ button:focus-visible {
     position: relative;
     padding: 0.5rem 0;
     color: var(--brown);
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: var(--font-display);
     font-size: 0.95rem;
     font-weight: 700;
-    letter-spacing: 0.025em;
+    letter-spacing: 0.05em;
     text-decoration: none;
     text-transform: uppercase;
     transition: color 180ms ease;
