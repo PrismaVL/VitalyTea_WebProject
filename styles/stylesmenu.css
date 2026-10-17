@@ -207,7 +207,7 @@ body.menu-page {
     position: relative;
     width: 100%;
     height: 100%;
-    min-height: 505px;
+    min-height: 465px;
     background: var(--menu-card-bg);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
@@ -229,7 +229,7 @@ body.menu-page {
     position: relative;
     width: 100%;
     flex: 1;
-    min-height: 425px;
+    min-height: 385px;
     overflow: visible;
 }
 
@@ -394,7 +394,7 @@ body.menu-page {
     justify-content: center;
     align-items: center;
     gap: 0.45rem;
-    margin-bottom: auto;
+    margin-bottom: 0.75rem;
     flex-wrap: wrap;
 }
 
@@ -1075,11 +1075,11 @@ body.menu-page {
     }
 
     .carousel {
-        min-height: 490px;
+        min-height: 465px;
     }
 
     .carousel-inner {
-        min-height: 410px;
+        min-height: 385px;
     }
 
     .product-crop-frame {
@@ -1101,11 +1101,11 @@ body.menu-page {
     }
 
     .carousel {
-        min-height: 505px;
+        min-height: 465px;
     }
 
     .carousel-inner {
-        min-height: 425px;
+        min-height: 385px;
     }
 
     .product-crop-frame {
