@@ -13,6 +13,15 @@
     box-sizing: border-box;
 }
 
+* {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}
+
 html {
     min-width: 320px;
     scroll-behavior: smooth;
