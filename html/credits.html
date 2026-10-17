@@ -3,104 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page - VitalyTea </title>
+    <meta name="theme-color" content="#f9f6f2">
+    <title>Credits - Vitaly Tea</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles/stylescredit.css">
+    <link rel="stylesheet" href="../styles/site-shell.css">
     <link rel="icon" type="image/x-icon" href="../images/LOGO2.png">
-    <script defer src="../script/scriptcredit.js"></script>
+    <script defer src="../script/site-shell.js"></script>
 </head>
-    <body>
-        <div style="user-select: none;" draggable="false" id="loader-container">
-            <iframe src="loader.html" style="width: 100%; height: 100vh; border: none;"></iframe>
+<body class="credits-page">
+    <nav class="navbar" aria-label="Main navigation">
+        <a class="logo" href="../index.html" aria-label="Vitaly Tea home">
+            <img src="../images/headerlogo.png" alt="Vitaly Tea">
+        </a>
+        <div class="nav-links" id="site-navigation">
+            <a href="services.html">Services</a>
+            <a href="menu.html">Menu</a>
+            <a href="order.html">Order</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact us</a>
         </div>
-        <nav class="navbar">
-            <div class="logo">
-                <a href="../index.html">
-                    <img style="user-select: none;" draggable="false" src="../images/headerlogo.png">
-                </a>
+        <button class="hamburger" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <main class="credits-main">
+        <header class="credits-intro">
+            <p class="credits-eyebrow">Made with appreciation</p>
+            <img class="credits-title-image" src="../images/about/creditHead.png" alt="Credits">
+            <p class="credits-description">A thank-you to the creators and sources whose work helped bring this project to life.</p>
+        </header>
+
+        <section class="credits-card" aria-labelledby="credits-sources-heading">
+            <div class="credits-card-heading">
+                <div>
+                    <h1 id="credits-sources-heading">Image sources</h1>
+                </div>
             </div>
-            <div class="nav-links" style="user-select: none;" draggable="false">
-                <a href="services.html">SERVICES</a>
-                <a href="menu.html">MENU</a>
-                <a href="order.html">ORDER</a>
-                <a href="about.html">ABOUT</a>
-                <a href="contact.html">CONTACT US</a>
-            </div>
-                            <div class="hamburger" onclick="toggleMenu()">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-        </nav>
-<div class="wrapper">
-    <main>
-        <div class="credits-container">
-            <img src="../images/about/creditHead.png" alt="Credits Header">
-            <ul class="reference">
+
+            <ol class="reference">
                 <li>
-                    <i>Other photos came from the paid elements in Canva:</i>
-                    <br>
-                    <a href="https://www.canva.com/" target="_blank">https://www.canva.com/</a>
+                    <div class="reference-copy">
+                        <strong>Canva</strong>
+                        <span>Other photos from paid Canva elements</span>
+                    </div>
+                    <a href="https://www.canva.com/" target="_blank" rel="noopener noreferrer">Visit source</a>
                 </li>
                 <li>
-                    <i>Sandwiches photos came from Subway Menu Website:</i>
-                    <br>
-                    <a href="https://www.subway.com/en-PH/MenuNutrition/Menu/Sandwiches" target="_blank">
-                        https://www.subway.com/en-PH/MenuNutrition/Menu/Sandwiches</a>
+                    <div class="reference-copy">
+                        <strong>Subway Philippines</strong>
+                        <span>Sandwich photos from the Subway menu</span>
+                    </div>
+                    <a href="https://www.subway.com/en-PH/MenuNutrition/Menu/Sandwiches" target="_blank" rel="noopener noreferrer">Visit source</a>
                 </li>
                 <li>
-                    <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqjCFOOZ46ff0GCF67JVLVcLhVrIIlEZAUnw&s" target="_blank">
-                        https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqjCFOOZ46ff0GCF67JVLVcLhVrIIlEZAUnw&s</a>
+                    <div class="reference-copy">
+                        <strong>Image reference</strong>
+                        <span>External image source</span>
+                    </div>
+                    <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqjCFOOZ46ff0GCF67JVLVcLhVrIIlEZAUnw&amp;s" target="_blank" rel="noopener noreferrer">View image</a>
                 </li>
                 <li>
-                    <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR_05OMxMyC68oQzWk4ZIoTfDzH4CUVFEF7Q&s" target="_blank">
-                        https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR_05OMxMyC68oQzWk4ZIoTfDzH4CUVFEF7Q&s</a>
+                    <div class="reference-copy">
+                        <strong>Image reference</strong>
+                        <span>External image source</span>
+                    </div>
+                    <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR_05OMxMyC68oQzWk4ZIoTfDzH4CUVFEF7Q&amp;s" target="_blank" rel="noopener noreferrer">View image</a>
                 </li>
                 <li>
-                    <a href="https://res.cloudinary.com/grimcoweb/image/upload/q_auto/f_auto/c_limit,h_392,w_392/v1695219746/Catalog/Products/HPLATEX630WPRINTANDCUTPLUSSOLUTION/HP_Latex_630W_Print_and_Cut_Plus_Solution_Front.jpg" target="_blank">
-                        https://res.cloudinary.com/grimcoweb/image/upload/q_auto/f_auto/c_limit,h_392,w_392/<br>
-                        v1695219746/Catalog/Products/HPLATEX630WPRINTANDCUTPLUSSOLUTION/HP_Latex_630W<br>
-                        _Print_and_Cut_Plus_Solution_Front.jpg</a>
+                    <div class="reference-copy">
+                        <strong>HP Latex 630W</strong>
+                        <span>Printer product image</span>
+                    </div>
+                    <a href="https://res.cloudinary.com/grimcoweb/image/upload/q_auto/f_auto/c_limit,h_392,w_392/v1695219746/Catalog/Products/HPLATEX630WPRINTANDCUTPLUSSOLUTION/HP_Latex_630W_Print_and_Cut_Plus_Solution_Front.jpg" target="_blank" rel="noopener noreferrer">View image</a>
                 </li>
                 <li>
-                    <a href="https://i.pinimg.com/736x/c0/8e/ca/c08ecad7188477cc0a8828c515b7e19f.jpg" target="_blank">
-                        https://i.pinimg.com/736x/c0/8e/ca/c08ecad7188477cc0a8828c515b7e19f.jpg</a>
+                    <div class="reference-copy">
+                        <strong>Pinterest image</strong>
+                        <span>Visual reference</span>
+                    </div>
+                    <a href="https://i.pinimg.com/736x/c0/8e/ca/c08ecad7188477cc0a8828c515b7e19f.jpg" target="_blank" rel="noopener noreferrer">View image</a>
                 </li>
                 <li>
-                    <a href="https://i.pinimg.com/736x/08/d9/6e/08d96ede0ecd347b7b2f0f21a61246f4.jpg" target="_blank">
-                        https://i.pinimg.com/736x/08/d9/6e/08d96ede0ecd347b7b2f0f21a61246f4.jpg</a>
+                    <div class="reference-copy">
+                        <strong>Pinterest image</strong>
+                        <span>Visual reference</span>
+                    </div>
+                    <a href="https://i.pinimg.com/736x/08/d9/6e/08d96ede0ecd347b7b2f0f21a61246f4.jpg" target="_blank" rel="noopener noreferrer">View image</a>
                 </li>
-            </ul>
-        </div>
+            </ol>
+        </section>
     </main>
 
     <footer class="footer">
         <div class="footer-container">
-            <div class="footer-section">
-                <h3>About Us</h3>
-                <p>Your go-to spot for quality printing services and delicious drinks. Relax and unwind while we handle your printing needs.</p>
-            </div>
-            <div class="footer-section">
-                <h3>Contact</h3>
-                <p>Email: contact@vitalytea.com</p>
-                <p>Phone: +63 966 703 6969 </p>
-                <p>Address: Padre Paredes St, Sampaloc, Manila, 1015 Metro Manila</p>
-            </div>
-            <div class="footer-section">
-                <h3>Follow Us</h3>
+            <section class="footer-section">
+                <h2>A little about us</h2>
+                <p>Your go-to spot for quality printing and delicious drinks. Relax and unwind while we take care of your printing needs.</p>
+            </section>
+            <section class="footer-section footer-contact">
+                <h2>Come say hello</h2>
+                <a href="mailto:contact@vitalytea.com">contact@vitalytea.com</a>
+                <a href="tel:+639667036969">+63 966 703 6969</a>
+                <a href="https://maps.app.goo.gl/7jKdA47HiwyaYrTX8" target="_blank" rel="noopener noreferrer">Padre Paredes St, Sampaloc, Manila, 1015 Metro Manila</a>
+            </section>
+            <section class="footer-section footer-social">
+                <h2>Follow along</h2>
                 <div class="social-icons">
-                    <a href="#"><img src="../images/facebook.webp" alt="Facebook"></a>
-                    <a href="#"><img src="../images/instagram.webp" alt="Instagram"></a>
-                    <a href="#"><img src="../images/twitter.webp" alt="Twitter"></a>
+                    <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.4 21v-8.2h2.8l.4-3.2h-3.2v-2c0-.9.3-1.5 1.6-1.5h1.7V3.2c-.3 0-1.3-.2-2.5-.2-2.5 0-4.2 1.5-4.2 4.3v2.3H7.2v3.2H10V21h3.4Z"/></svg></a>
+                    <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle class="social-dot" cx="17.7" cy="6.7" r="1"/></svg></a>
+                    <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.2 6.1a7.2 7.2 0 0 1-2.1.6 3.7 3.7 0 0 0 1.6-2 7.3 7.3 0 0 1-2.3.9 3.6 3.6 0 0 0-6.2 3.3 10.3 10.3 0 0 1-7.5-3.8 3.6 3.6 0 0 0 1.1 4.8 3.6 3.6 0 0 1-1.6-.4v.1a3.6 3.6 0 0 0 2.9 3.5 3.6 3.6 0 0 1-1.6.1 3.6 3.6 0 0 0 3.4 2.5 7.3 7.3 0 0 1-5.4 1.5 10.3 10.3 0 0 0 5.6 1.6c6.7 0 10.4-5.5 10.4-10.3v-.5a7.4 7.4 0 0 0 1.7-1.9Z"/></svg></a>
                 </div>
-            </div>
+            </section>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 Vitaly Tea. All Rights Reserved.</p>
+            <p>&copy; 2025 Vitaly Tea. All rights reserved.</p>
         </div>
     </footer>
-</div>
 </body>
 </html>
