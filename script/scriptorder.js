@@ -84,13 +84,47 @@ function updateCheckoutFields() {
     }
 }
 
+let receiptCloseTimer;
+let receiptPreviousFocus;
+
 function openModal() {
-    document.getElementById("receiptModal").style.display = "flex";
+    const modal = document.getElementById("receiptModal");
+    window.clearTimeout(receiptCloseTimer);
+    receiptPreviousFocus = document.activeElement;
+    modal.style.display = "flex";
+    modal.classList.remove("is-closing");
+    modal.setAttribute("aria-hidden", "false");
+    requestAnimationFrame(() => modal.classList.add("is-open"));
+    modal.querySelector(".modal-content").focus();
 }
 
 function closeModal() {
-    document.getElementById("receiptModal").style.display = "none";
+    const modal = document.getElementById("receiptModal");
+    if (!modal.classList.contains("is-open")) {
+        return;
+    }
+
+    modal.classList.remove("is-open");
+    modal.classList.add("is-closing");
+    modal.setAttribute("aria-hidden", "true");
+    receiptCloseTimer = window.setTimeout(() => {
+        modal.style.display = "none";
+        modal.classList.remove("is-closing");
+        receiptPreviousFocus?.focus();
+    }, 220);
 }
+
+document.getElementById("receiptModal").addEventListener("click", (event) => {
+    if (event.target.id === "receiptModal") {
+        closeModal();
+    }
+});
+
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+        closeModal();
+    }
+});
 
 document.getElementById("orderForm").addEventListener("change", (event) => {
     if (event.target.name === "deliveryMethod") {
@@ -137,20 +171,35 @@ document.getElementById("orderForm").addEventListener("submit", (event) => {
         ? "Store Pickup"
         : `${formData.get("address")}, ${formData.get("city")}, ${formData.get("postalCode")}, ${formData.get("country")}`;
     const receiptDetails = `
-        <p><strong>Name:</strong> ${escapeHtml(formData.get("name"))}</p>
-        <p><strong>Phone:</strong> ${escapeHtml(formData.get("phone"))}</p>
-        <p><strong>Address:</strong> ${escapeHtml(address)}</p>
-        ${formData.get("orderNotes") ? `<p><strong>Order Notes:</strong> ${escapeHtml(formData.get("orderNotes"))}</p>` : ""}
-        <p><strong>Delivery:</strong> ${escapeHtml(deliveryName)}</p>
-        <p><strong>Payment Method:</strong> ${escapeHtml(paymentMethod)}</p>
-        <p><strong>Subtotal:</strong> ${formatCurrency(subtotal)}</p>
-        <p><strong>Shipping:</strong> ${formatCurrency(shipping)}</p>
-        <p><strong>Total:</strong> ${formatCurrency(total)}</p>
-        ${paymentMethod !== "Cash on Delivery" ? "<p>Online payment is not processed by this demo checkout.</p>" : ""}
-        <h3>Order Items:</h3>
-        <ul>
-            ${cart.map((item) => `<li>${escapeHtml(item.name)}${item.size ? ` (${escapeHtml(item.size)})` : ""} - ${Number(item.quantity)} x ${formatCurrency(Number(item.price))} = ${formatCurrency(Number(item.price) * Number(item.quantity))}</li>`).join("")}
-        </ul>
+        <section class="receipt-section receipt-customer" aria-label="Customer and delivery information">
+            <h3>Delivery details</h3>
+            <dl class="receipt-info-grid">
+                <div><dt>Name</dt><dd>${escapeHtml(formData.get("name"))}</dd></div>
+                <div><dt>Phone</dt><dd>${escapeHtml(formData.get("phone"))}</dd></div>
+                <div class="receipt-info-wide"><dt>Address</dt><dd>${escapeHtml(address)}</dd></div>
+                <div><dt>Delivery</dt><dd>${escapeHtml(deliveryName)}</dd></div>
+                <div><dt>Payment</dt><dd>${escapeHtml(paymentMethod)}</dd></div>
+                ${formData.get("orderNotes") ? `<div class="receipt-info-wide"><dt>Order notes</dt><dd>${escapeHtml(formData.get("orderNotes"))}</dd></div>` : ""}
+            </dl>
+        </section>
+        <section class="receipt-section" aria-label="Ordered items">
+            <h3>Order items</h3>
+            <ul class="receipt-items">
+                ${cart.map((item) => `
+                    <li>
+                        <span class="receipt-item-name">${escapeHtml(item.name)}${item.size ? ` <small>(${escapeHtml(item.size)})</small>` : ""}</span>
+                        <span class="receipt-item-quantity">${Number(item.quantity)} × ${formatCurrency(Number(item.price))}</span>
+                        <strong>${formatCurrency(Number(item.price) * Number(item.quantity))}</strong>
+                    </li>
+                `).join("")}
+            </ul>
+        </section>
+        <section class="receipt-section receipt-totals" aria-label="Payment summary">
+            <div><span>Subtotal</span><strong>${formatCurrency(subtotal)}</strong></div>
+            <div><span>Shipping</span><strong>${formatCurrency(shipping)}</strong></div>
+            <div class="receipt-grand-total"><span>Total</span><strong>${formatCurrency(total)}</strong></div>
+            ${paymentMethod !== "Cash on Delivery" ? '<p class="receipt-payment-note">Online payment is not processed by this demo checkout.</p>' : ""}
+        </section>
     `;
 
     document.getElementById("receiptDetails").innerHTML = receiptDetails;

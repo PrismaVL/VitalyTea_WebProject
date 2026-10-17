@@ -58,7 +58,8 @@ body {
 .nav-links a {
     text-decoration: none;
     font-size: 2vh;
-    font-family: 'Georgia', serif;
+    font-family: "DM Serif Display", Georgia, "Times New Roman", serif;
+    letter-spacing: 0.05em;
     color: #634C44;
     font-weight: bold;
     transition: color 0.3s ease-in-out;
@@ -238,7 +239,7 @@ body {
 
     .top-nav ul {
         display: flex;
-        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-family: "DM Serif Display", Georgia, "Times New Roman", serif;
         justify-content: center;
         transition: max-height 0.3s ease-in-out;
     }

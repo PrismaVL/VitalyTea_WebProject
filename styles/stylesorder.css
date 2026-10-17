@@ -57,7 +57,8 @@ body {
 .nav-links a {
     text-decoration: none;
     font-size: 2vh;
-    font-family: var(--font-body);
+    font-family: var(--font-display);
+    letter-spacing: 0.05em;
     color: #634C44;
     font-weight: bold;
     transition: color 0.3s ease-in-out;
@@ -303,43 +304,256 @@ body {
 .modal {
     display: none;
     position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10000;
+    inset: 0;
+    overflow-y: auto;
+    padding: 1.25rem;
+    background: rgba(36, 29, 26, 0.48);
+    backdrop-filter: blur(4px);
     justify-content: center;
     align-items: center;
 }
 
+.modal.is-open {
+    animation: receipt-backdrop-in 220ms ease both;
+}
+
+.modal.is-closing {
+    animation: receipt-backdrop-out 220ms ease both;
+}
+
 .modal-content {
-    background-color: #F9F6F2;
-    padding: 20px;
-    border-radius: 10px;
-    width: 80%;
-    max-width: 500px;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
     position: relative;
+    width: min(100%, 560px);
+    max-height: min(88vh, 760px);
+    overflow-y: auto;
+    padding: clamp(1.5rem, 4vw, 2.25rem);
+    border: 1px solid rgba(99, 76, 68, 0.15);
+    border-radius: 20px;
+    background: #fffdfa;
+    box-shadow: 0 24px 70px rgba(36, 29, 26, 0.24);
+    outline: none;
+}
+
+.modal.is-open .modal-content {
+    animation: receipt-panel-in 320ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.modal.is-closing .modal-content {
+    animation: receipt-panel-out 200ms ease both;
+}
+
+.receipt-eyebrow {
+    margin: 0 2.5rem 0.35rem 0;
+    color: #4c6c64;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.modal-content h2 {
+    margin: 0 2rem 1.25rem 0;
+    color: #342a26;
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 5vw, 2.35rem);
+    font-weight: 400;
+    line-height: 1.1;
 }
 
 .close {
     position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 24px;
+    top: 1rem;
+    right: 1rem;
+    display: grid;
+    width: 2.4rem;
+    height: 2.4rem;
+    place-items: center;
+    border: 0;
+    border-radius: 50%;
+    background: #f2ece6;
+    color: #634c44;
+    font: inherit;
+    font-size: 1.5rem;
+    line-height: 1;
     cursor: pointer;
-    color: #634C44;
+    transition: background-color 160ms ease, color 160ms ease, transform 160ms ease;
 }
 
 .close:hover {
+    transform: rotate(90deg);
+    background: #e6eee9;
     color: #4c6c64;
 }
 
 #receiptDetails {
-    margin-top: 20px;
-    font-size: 1.2em;
-    color: #634C44;
+    color: #554b46;
+    font-size: 0.94rem;
+}
+
+.receipt-section {
+    margin-top: 1.15rem;
+    padding-top: 1.1rem;
+    border-top: 1px solid rgba(99, 76, 68, 0.14);
+}
+
+.receipt-section h3 {
+    margin: 0 0 0.75rem;
+    color: #634c44;
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.receipt-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem 1rem;
+    margin: 0;
+}
+
+.receipt-info-grid > div {
+    min-width: 0;
+}
+
+.receipt-info-grid dt {
+    margin-bottom: 0.15rem;
+    color: #8f7872;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.receipt-info-grid dd {
+    margin: 0;
+    overflow-wrap: anywhere;
+    color: #342a26;
+    line-height: 1.45;
+}
+
+.receipt-info-wide {
+    grid-column: 1 / -1;
+}
+
+.receipt-items {
+    display: grid;
+    gap: 0.55rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.receipt-items li {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    align-items: baseline;
+    gap: 0.75rem;
+    padding: 0.7rem 0.8rem;
+    border-radius: 10px;
+    background: #f7f3ee;
+}
+
+.receipt-item-name {
+    color: #342a26;
+    font-weight: 600;
+}
+
+.receipt-item-name small {
+    color: #8f7872;
+    font-size: 0.82em;
+    font-weight: 400;
+}
+
+.receipt-item-quantity {
+    color: #71625c;
+    font-size: 0.86rem;
+    white-space: nowrap;
+}
+
+.receipt-items li > strong {
+    color: #342a26;
+    white-space: nowrap;
+}
+
+.receipt-totals {
+    display: grid;
+    gap: 0.55rem;
+}
+
+.receipt-totals > div {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.receipt-totals .receipt-grand-total {
+    margin-top: 0.2rem;
+    padding-top: 0.8rem;
+    border-top: 1px dashed rgba(99, 76, 68, 0.3);
+    color: #342a26;
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.receipt-grand-total strong {
+    color: #4c6c64;
+}
+
+.receipt-payment-note {
+    margin: 0.35rem 0 0;
+    color: #8f7872;
+    font-size: 0.82rem;
+    line-height: 1.45;
+}
+
+.receipt-close-button {
+    display: block;
+    width: 100%;
+    margin-top: 1.25rem;
+    padding: 0.85rem 1rem;
+    border: 0;
+    border-radius: 10px;
+    background: #4c6c64;
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.receipt-close-button:hover {
+    transform: translateY(-1px);
+    background: #3d5b53;
+}
+
+@keyframes receipt-backdrop-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes receipt-backdrop-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@keyframes receipt-panel-in {
+    from { opacity: 0; transform: translateY(14px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes receipt-panel-out {
+    from { opacity: 1; transform: translateY(0) scale(1); }
+    to { opacity: 0; transform: translateY(8px) scale(0.985); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .modal.is-open,
+    .modal.is-closing,
+    .modal.is-open .modal-content,
+    .modal.is-closing .modal-content {
+        animation-duration: 1ms;
+    }
 }
 
 
@@ -1060,5 +1274,32 @@ body {
 }
 
 .order-page .navbar .nav-links a {
-    font-family: var(--font-body);
+    font-family: var(--font-display);
+}
+
+.order-page .form-section,
+.order-page .cart-container {
+    animation: arrive 650ms cubic-bezier(0.2, 0.7, 0.25, 1) both;
+}
+
+.order-page .cart-container {
+    animation-delay: 100ms;
+}
+
+@keyframes arrive {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .order-page .form-section,
+    .order-page .cart-container {
+        animation: none;
+    }
 }
