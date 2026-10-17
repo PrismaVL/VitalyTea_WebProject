@@ -30,37 +30,90 @@
     </nav>
 
     <main class="body-content">
-        <section class="cart-container" aria-labelledby="cart-heading">
-            <h1 id="cart-heading">Your Cart</h1>
-            <div id="cartItemDetails" class="cart-items" aria-live="polite"></div>
-            <div class="cart-actions">
-                <a class="continue-shopping" href="menu.html">Continue Shopping</a>
-                <button type="button" onclick="clearCart()">Clear Cart</button>
-            </div>
-        </section>
-    
-        <section class="form-section" aria-labelledby="order-heading">
+        <div class="checkout-layout">
+            <section class="form-section" aria-labelledby="order-heading">
             <form id="orderForm">
                 <h2 id="order-heading">Order Form</h2>
-                <div class="form-group">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" autocomplete="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="phone">Phone Number:</label>
-                    <input type="tel" id="phone" name="phone" autocomplete="tel" required>
-                </div>
-                <div class="form-group">
-                    <label for="address">Address:</label>
-                    <input type="text" id="address" name="address" autocomplete="street-address" required>
-                </div>
-                <div class="form-group">
-                    <label for="cash">Cash:</label>
-                    <input type="number" id="cash" name="cash" min="0" step="0.01" inputmode="decimal" required>
-                </div>
-                <button type="submit">Place Order</button>
+
+                <fieldset class="checkout-section">
+                    <legend>1. Shipping Information</legend>
+                    <div class="checkout-fields">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" autocomplete="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" autocomplete="tel" required>
+                        </div>
+                        <div class="form-group address-field">
+                            <label for="address">Address</label>
+                            <input type="text" id="address" name="address" autocomplete="street-address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="postalCode">Postal Code</label>
+                            <input type="text" id="postalCode" name="postalCode" autocomplete="postal-code" inputmode="numeric" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" id="city" name="city" autocomplete="address-level2" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="country">Country</label>
+                            <input type="text" id="country" name="country" autocomplete="country-name" value="Philippines" required>
+                        </div>
+                        <div class="form-group checkout-notes">
+                            <label for="orderNotes">Order Notes <span>(Optional)</span></label>
+                            <textarea id="orderNotes" name="orderNotes" rows="3" placeholder="Special instructions for delivery..."></textarea>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset class="checkout-section">
+                    <legend>2. Delivery Method</legend>
+                    <div class="choice-list">
+                        <label class="checkout-choice">
+                            <input type="radio" name="deliveryMethod" value="standard" data-fee="150" checked required>
+                            <span class="choice-copy"><strong>Standard Delivery</strong><small>Estimated: 30–45 minutes</small></span>
+                            <strong class="choice-price">₱150.00</strong>
+                        </label>
+                        <label class="checkout-choice">
+                            <input type="radio" name="deliveryMethod" value="express" data-fee="250">
+                            <span class="choice-copy"><strong>Express Delivery</strong><small>Estimated: 20–30 minutes</small></span>
+                            <strong class="choice-price">₱250.00</strong>
+                        </label>
+                        <label class="checkout-choice">
+                            <input type="radio" name="deliveryMethod" value="pickup" data-fee="0">
+                            <span class="choice-copy"><strong>Store Pickup</strong><small>Ready in 15–20 minutes</small></span>
+                            <strong class="choice-price">Free</strong>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <fieldset class="checkout-section">
+                    <legend>3. Payment Method</legend>
+                    <div class="payment-options">
+                        <label class="payment-choice" id="cashOnDeliveryOption"><input type="radio" name="paymentMethod" value="Cash on Delivery" checked required><span>Cash on Delivery</span></label>
+                        <label class="payment-choice"><input type="radio" name="paymentMethod" value="GCash"><span>GCash</span></label>
+                        <label class="payment-choice"><input type="radio" name="paymentMethod" value="Online Bank"><span>Online Bank</span></label>
+                        <label class="payment-choice"><input type="radio" name="paymentMethod" value="Credit Card"><span>Credit Card</span></label>
+                    </div>
+                </fieldset>
             </form>
-        </section>
+            </section>
+
+            <aside class="cart-container" aria-labelledby="cart-heading">
+                <h1 id="cart-heading">Your Cart</h1>
+                <div id="cartItemDetails" class="cart-items" aria-live="polite"></div>
+                <section class="order-summary" aria-labelledby="summary-heading">
+                    <h2 id="summary-heading">Order Summary</h2>
+                    <div class="summary-row"><span>Subtotal</span><strong id="orderSubtotal">₱0.00</strong></div>
+                    <div class="summary-row"><span>Shipping</span><strong id="orderShipping">₱150.00</strong></div>
+                    <div class="summary-row summary-total"><span>Total</span><strong id="orderTotal">₱150.00</strong></div>
+                    <button type="submit" form="orderForm">Complete Order</button>
+                </section>
+            </aside>
+        </div>
     </main>
     
     <footer class="footer">

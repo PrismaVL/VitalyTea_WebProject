@@ -1,4 +1,3 @@
-
 function escapeHtml(value) {
     return String(value).replace(/[&<>"']/g, (character) => ({
         "&": "&amp;",
@@ -9,124 +8,156 @@ function escapeHtml(value) {
     })[character]);
 }
 
+function getCart() {
+    return JSON.parse(localStorage.getItem("cart") || "[]");
+}
+
+function formatCurrency(amount) {
+    return `₱${amount.toFixed(2)}`;
+}
+
+function getSubtotal(cart) {
+    return cart.reduce((sum, item) => sum + Number(item.price) * Number(item.quantity), 0);
+}
+
+function getDeliverySelection() {
+    return document.querySelector('input[name="deliveryMethod"]:checked');
+}
+
+function getShippingFee() {
+    if (getCart().length === 0) {
+        return 0;
+    }
+    return Number(getDeliverySelection()?.dataset.fee || 0);
+}
+
+function updateOrderSummary() {
+    const subtotal = getSubtotal(getCart());
+    const shipping = getShippingFee();
+    document.getElementById("orderSubtotal").textContent = formatCurrency(subtotal);
+    document.getElementById("orderShipping").textContent = formatCurrency(shipping);
+    document.getElementById("orderTotal").textContent = formatCurrency(subtotal + shipping);
+}
+
 function displayCart() {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cart = getCart();
     const cartItemDetails = document.getElementById("cartItemDetails");
 
-    if (cart.length > 0) {
-        let cartHTML = '';
-        let totalCartPrice = 0;
- 
-        cart.forEach(item => {
-
-            const itemTotalPrice = item.price * item.quantity;
-            totalCartPrice += itemTotalPrice;
-
-            cartHTML += `
-                <div class="cart-item">
-                    <p><strong>Item:</strong> ${escapeHtml(item.name)}</p>
-                    ${item.size ? `<p><strong>Size:</strong> ${escapeHtml(item.size)}</p>` : ''}
-                    <p><strong>Quantity:</strong> ${item.quantity}</p>
-                    <p><strong>Price per Item:</strong> ₱${item.price.toFixed(2)}</p>
-                    <p><strong>Total Price:</strong> ₱${itemTotalPrice.toFixed(2)}</p>
-                </div>
-            `;
-        });
-
-        cartHTML += `<div class="cart-item"><p><strong>Total Cart Price:</strong> ₱${totalCartPrice.toFixed(2)}</p></div>`;
-        cartItemDetails.innerHTML = cartHTML;
-    } else {
+    if (cart.length === 0) {
         cartItemDetails.innerHTML = "<p>No items in the cart.</p>";
-    }
-}
-
-function clearCart() {
-    localStorage.removeItem('cart'); // Clear the cart from localStorage
-    displayCart(); // Refresh the cart display
-    updateCheckoutButtonVisibility(); // Update the checkout button visibility
-}
-
-// Function to check if the cart is empty and toggle the checkout button visibility
-function updateCheckoutButtonVisibility() {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const checkoutButton = document.getElementById('checkoutButton');
-
-    if (!checkoutButton) {
+        updateOrderSummary();
         return;
     }
 
-    if (cart.length > 0) {
-        checkoutButton.style.display = 'block'; // Show the button if the cart is not empty
-    } else {
-        checkoutButton.style.display = 'none'; // Hide the button if the cart is empty
+    cartItemDetails.innerHTML = cart.map((item, index) => {
+        const quantity = Number(item.quantity);
+        const price = Number(item.price);
+        const itemTotal = price * quantity;
+        return `
+            <div class="cart-item">
+                <div class="cart-item-heading">
+                    <p><strong>Item:</strong> ${escapeHtml(item.name)}</p>
+                    <button class="remove-cart-item" type="button" data-remove-item="${index}" aria-label="Remove ${escapeHtml(item.name)} from cart">&times;</button>
+                </div>
+                ${item.size ? `<p><strong>Size:</strong> ${escapeHtml(item.size)}</p>` : ""}
+                <p><strong>Quantity:</strong> ${quantity}</p>
+                <p><strong>Price per Item:</strong> ${formatCurrency(price)}</p>
+                <p><strong>Total Price:</strong> ${formatCurrency(itemTotal)}</p>
+            </div>
+        `;
+    }).join("");
+
+    updateOrderSummary();
+}
+
+function updateCheckoutFields() {
+    const isPickup = getDeliverySelection()?.value === "pickup";
+    ["address", "postalCode", "city", "country"].forEach((id) => {
+        document.getElementById(id).required = !isPickup;
+    });
+
+    const cashOnDeliveryOption = document.getElementById("cashOnDeliveryOption");
+    const cashOnDeliveryInput = cashOnDeliveryOption.querySelector("input");
+    cashOnDeliveryOption.hidden = isPickup;
+    if (isPickup && cashOnDeliveryInput.checked) {
+        document.querySelector('input[name="paymentMethod"][value="GCash"]').checked = true;
     }
 }
 
-function resetFormFields() {
-    document.getElementById('name').value = '';
-    document.getElementById('phone').value = '';
-    document.getElementById('address').value = '';
-    document.getElementById('cash').value = '';
-}
-
 function openModal() {
-    document.getElementById('receiptModal').style.display = 'flex';
+    document.getElementById("receiptModal").style.display = "flex";
 }
 
 function closeModal() {
-    document.getElementById('receiptModal').style.display = 'none';
+    document.getElementById("receiptModal").style.display = "none";
 }
 
-document.getElementById('orderForm').addEventListener('submit', function (event) {
+document.getElementById("orderForm").addEventListener("change", (event) => {
+    if (event.target.name === "deliveryMethod") {
+        updateCheckoutFields();
+        updateOrderSummary();
+    }
+});
+
+document.getElementById("cartItemDetails").addEventListener("click", (event) => {
+    const removeButton = event.target.closest("[data-remove-item]");
+    if (!removeButton) {
+        return;
+    }
+
+    const cart = getCart();
+    cart.splice(Number(removeButton.dataset.removeItem), 1);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    displayCart();
+});
+
+document.getElementById("orderForm").addEventListener("submit", (event) => {
     event.preventDefault();
 
-    const name = document.getElementById('name').value;
-    const phone = document.getElementById('phone').value;
-    const address = document.getElementById('address').value;
-    const cash = Number(document.getElementById('cash').value);
-
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-
+    const cart = getCart();
     if (cart.length === 0) {
         alert("Your cart is empty. Add items before placing an order.");
         return;
     }
 
-    const totalBill = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-
-    if (!Number.isFinite(cash) || cash < 0) {
-        alert("Please enter a valid cash amount.");
+    const form = event.currentTarget;
+    if (!form.reportValidity()) {
         return;
     }
 
-    if (cash < totalBill) {
-        alert("Insufficient cash! Please provide enough cash to complete the order.");
-        return;
-    }
+    const formData = new FormData(form);
+    const subtotal = getSubtotal(cart);
+    const shipping = getShippingFee();
+    const total = subtotal + shipping;
+    const paymentMethod = String(formData.get("paymentMethod"));
+    const delivery = getDeliverySelection();
+    const deliveryName = delivery.closest(".checkout-choice").querySelector(".choice-copy strong").textContent;
 
-    const change = cash - totalBill;
-
+    const address = delivery.value === "pickup"
+        ? "Store Pickup"
+        : `${formData.get("address")}, ${formData.get("city")}, ${formData.get("postalCode")}, ${formData.get("country")}`;
     const receiptDetails = `
-        <p><strong>Name:</strong> ${escapeHtml(name)}</p>
-        <p><strong>Phone:</strong> ${escapeHtml(phone)}</p>
+        <p><strong>Name:</strong> ${escapeHtml(formData.get("name"))}</p>
+        <p><strong>Phone:</strong> ${escapeHtml(formData.get("phone"))}</p>
         <p><strong>Address:</strong> ${escapeHtml(address)}</p>
-        <p><strong>Total Bill:</strong> ₱${totalBill.toFixed(2)}</p>
-        <p><strong>Cash:</strong> ₱${cash.toFixed(2)}</p>
-        <p><strong>Change:</strong> ₱${change.toFixed(2)}</p>
+        ${formData.get("orderNotes") ? `<p><strong>Order Notes:</strong> ${escapeHtml(formData.get("orderNotes"))}</p>` : ""}
+        <p><strong>Delivery:</strong> ${escapeHtml(deliveryName)}</p>
+        <p><strong>Payment Method:</strong> ${escapeHtml(paymentMethod)}</p>
+        <p><strong>Subtotal:</strong> ${formatCurrency(subtotal)}</p>
+        <p><strong>Shipping:</strong> ${formatCurrency(shipping)}</p>
+        <p><strong>Total:</strong> ${formatCurrency(total)}</p>
+        ${paymentMethod !== "Cash on Delivery" ? "<p>Online payment is not processed by this demo checkout.</p>" : ""}
         <h3>Order Items:</h3>
         <ul>
-            ${cart.map(item => `
-                <li>${escapeHtml(item.name)} (${escapeHtml(item.size || 'N/A')}) - ${item.quantity} x ₱${item.price.toFixed(2)} = ₱${(item.price * item.quantity).toFixed(2)}</li>
-            `).join('')}
+            ${cart.map((item) => `<li>${escapeHtml(item.name)}${item.size ? ` (${escapeHtml(item.size)})` : ""} - ${Number(item.quantity)} x ${formatCurrency(Number(item.price))} = ${formatCurrency(Number(item.price) * Number(item.quantity))}</li>`).join("")}
         </ul>
     `;
 
-    document.getElementById('receiptDetails').innerHTML = receiptDetails;
+    document.getElementById("receiptDetails").innerHTML = receiptDetails;
     openModal();
-
-    resetFormFields();
-
-    clearCart();
+    localStorage.removeItem("cart");
+    displayCart();
 });
 
 displayCart();
+updateCheckoutFields();
