@@ -6,7 +6,7 @@
     <title>About Us - VitalyTea</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles/stylesabout.css">
     <link rel="stylesheet" href="../styles/site-shell.css">
     <link rel="icon" type="image/x-icon" href="../images/LOGO2.png">
@@ -37,24 +37,32 @@
     <div id="invi-line"></div>
 
     <main class="main">
-        <p class="p1">
-            We are a team of four passionate students from <b>FEU Institute of Technology</b>— <b>Sophia Calalay, Ping-Wei Chen,
-            Christian Molina, and Jaymard Licas</b>. This website is a project for our <b>Advanced Web Design</b> subject, where we
-            apply our skills in design and development to create a seamless and engaging user experience. Through this
-            platform, we aim to <b>showcase our creativity, technical expertise, and dedication to web development</b>.
-        </p>
+        <section class="about-intro" aria-labelledby="about-intro-heading">
+            <p class="about-eyebrow">The people behind the project</p>
+            <h1 id="about-intro-heading">A little about our team</h1>
+            <p class="p1">
+                We are a team of four passionate students from <b>FEU Institute of Technology</b>—<b>Sophia Calalay, Ping-Wei Chen,
+                Christian Molina, and Jaymard Licas</b>. Created for our <b>Advanced Web Design</b> subject, this website brings
+                our ideas in design and development together to create a seamless, engaging experience. We hope it reflects our
+                <b>creativity, technical skills, and dedication to web development</b>.
+            </p>
+        </section>
 
-        <div id="thirdPart">
-            <h3 class="hDocu">MEET THE DEVELOPERS</h3>
-            <div class="devPhoto">
-                <div id="Sophia"><img src="../images/about/Pia.png" alt="Sophia"></div>
-                <div id="PingWei"><img src="../images/about/PING.png" alt="Ping-Wei"></div>
-                <div id="Christian"><img src="../images/about/Josua.png" alt="Christian"></div>
-                <div id="Jaymard"><img src="../images/about/Jay.png" alt="Jaymard"></div>
+        <section id="thirdPart" aria-labelledby="team-heading">
+            <div class="team-heading">
+                <p class="about-eyebrow">Four minds, one project</p>
+                <h2 class="hDocu" id="team-heading">Meet the developers</h2>
+                <p class="team-description">The team that brought the Vitaly Tea experience to life.</p>
             </div>
-        </div>
+            <div class="devPhoto">
+                <div class="developer-card" id="Sophia"><img src="../images/about/Pia.png" alt="Portrait of Sophia Calalay"></div>
+                <div class="developer-card" id="PingWei"><img src="../images/about/PING.png" alt="Portrait of Ping-Wei Chen"></div>
+                <div class="developer-card" id="Christian"><img src="../images/about/Josua.png" alt="Portrait of Christian Molina"></div>
+                <div class="developer-card" id="Jaymard"><img src="../images/about/Jay.png" alt="Portrait of Jaymard Licas"></div>
+            </div>
+        </section>
 
-        <div id="fourthPart">
+        <div id="fourthPart" class="about-credits">
             <a href="credits.html" class="credBut">Go to Credits</a>
         </div>
     </main>

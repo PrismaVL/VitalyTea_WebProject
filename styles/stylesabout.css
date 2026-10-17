@@ -633,3 +633,248 @@ body{
         max-width: none;
     }
 }
+
+.about-page {
+    background:
+        radial-gradient(ellipse at 92% 28rem, rgba(207, 188, 168, 0.16), transparent 32rem),
+        #f9f6f2;
+    color: #342a26;
+    font-family: "DM Sans", "Trebuchet MS", Arial, sans-serif;
+}
+
+.about-page #bgAboutUs {
+    position: relative;
+    overflow: hidden;
+    background: #263f38;
+}
+
+.about-page #bgAU {
+    display: block;
+    width: 100%;
+    height: clamp(230px, 32vw, 430px);
+    margin-top: 0;
+    object-fit: cover;
+    object-position: center 48%;
+    box-shadow: 0 12px 28px rgba(42, 32, 28, 0.16);
+    animation: about-arrive 700ms cubic-bezier(0.2, 0.7, 0.25, 1) both;
+}
+
+.about-page #invi-line {
+    display: none;
+}
+
+.about-page .main {
+    width: min(100%, 1240px);
+    margin: 0 auto;
+    padding: clamp(2.75rem, 6vw, 5rem) clamp(1rem, 4vw, 3rem) 1.5rem;
+}
+
+.about-page .about-intro {
+    max-width: 880px;
+    margin: 0 auto clamp(3rem, 7vw, 5.5rem);
+    text-align: center;
+    animation: about-arrive 700ms 100ms cubic-bezier(0.2, 0.7, 0.25, 1) both;
+}
+
+.about-page .about-eyebrow {
+    color: #4c6c64;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    line-height: 1.5;
+    text-transform: uppercase;
+}
+
+.about-page .about-intro h1 {
+    margin: 0.6rem 0 1rem;
+    color: #342a26;
+    font-family: "DM Serif Display", Georgia, "Times New Roman", serif;
+    font-size: clamp(2.35rem, 5vw, 3.8rem);
+    font-weight: 400;
+    letter-spacing: -0.035em;
+    line-height: 1.08;
+}
+
+.about-page .p1 {
+    max-width: 790px;
+    margin: 0 auto;
+    padding: 0;
+    color: #71625c;
+    font-size: clamp(1rem, 1.5vw, 1.12rem);
+    font-weight: 400;
+    line-height: 1.85;
+    text-align: center;
+}
+
+.about-page .p1 b {
+    color: #4c6c64;
+    font-weight: 700;
+}
+
+.about-page #thirdPart {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.about-page .team-heading {
+    margin-bottom: 1.75rem;
+    animation: about-arrive 700ms 180ms cubic-bezier(0.2, 0.7, 0.25, 1) both;
+}
+
+.about-page .hDocu {
+    margin: 0.4rem 0 0.35rem;
+    color: #342a26;
+    font-family: "DM Serif Display", Georgia, "Times New Roman", serif;
+    font-size: clamp(1.9rem, 3.5vw, 2.7rem);
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+.about-page .team-description {
+    color: #71625c;
+    font-size: 0.96rem;
+    line-height: 1.6;
+}
+
+.about-page .devPhoto {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(0.8rem, 2vw, 1.4rem);
+    margin: 0;
+}
+
+.about-page .developer-card,
+.about-page #Sophia,
+.about-page #PingWei,
+.about-page #Christian,
+.about-page #Jaymard {
+    min-width: 0;
+    max-width: none;
+    overflow: hidden;
+    border: 1px solid rgba(99, 76, 68, 0.14);
+    border-radius: 18px;
+    background: #e5e0d9;
+    box-shadow: 0 12px 28px rgba(57, 43, 36, 0.11);
+    transition: transform 220ms ease, box-shadow 220ms ease;
+    animation: about-arrive 700ms cubic-bezier(0.2, 0.7, 0.25, 1) both;
+}
+
+.about-page .developer-card:nth-child(2) {
+    animation-delay: 80ms;
+}
+
+.about-page .developer-card:nth-child(3) {
+    animation-delay: 160ms;
+}
+
+.about-page .developer-card:nth-child(4) {
+    animation-delay: 240ms;
+}
+
+.about-page .developer-card:hover {
+    z-index: 1;
+    transform: translateY(-5px);
+    box-shadow: 0 18px 34px rgba(57, 43, 36, 0.16);
+}
+
+.about-page .devPhoto img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+    box-shadow: none;
+    transition: transform 300ms ease;
+}
+
+.about-page .developer-card:hover img {
+    transform: scale(1.025);
+}
+
+.about-page .about-credits {
+    height: auto;
+    margin: clamp(2.5rem, 5vw, 4rem) 0 1rem;
+}
+
+.about-page .credBut {
+    padding: 0.9rem 1.5rem;
+    border-radius: 999px;
+    background: #4c6c64;
+    box-shadow: 0 8px 18px rgba(61, 91, 83, 0.18);
+    font-family: "DM Sans", "Trebuchet MS", Arial, sans-serif;
+    font-size: 0.92rem;
+    font-weight: 700;
+    scale: 1;
+    transition: background-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.about-page .credBut:hover {
+    transform: translateY(-2px);
+    background: #3d5b53;
+    box-shadow: 0 12px 22px rgba(61, 91, 83, 0.24);
+}
+
+@keyframes about-arrive {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 760px) {
+    .about-page #bgAU {
+        height: clamp(200px, 42vw, 320px);
+        object-position: center;
+    }
+
+    .about-page .main {
+        padding-top: 2.5rem;
+    }
+
+    .about-page .devPhoto {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.9rem;
+    }
+}
+
+@media (max-width: 420px) {
+    .about-page .main {
+        padding-inline: 1rem;
+    }
+
+    .about-page .about-intro {
+        margin-bottom: 2.75rem;
+    }
+
+    .about-page .p1 {
+        font-size: 0.95rem;
+        line-height: 1.75;
+    }
+
+    .about-page .devPhoto {
+        gap: 0.65rem;
+    }
+
+    .about-page .developer-card {
+        border-radius: 13px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .about-page #bgAU,
+    .about-page .about-intro,
+    .about-page .team-heading,
+    .about-page .developer-card {
+        animation: none;
+    }
+
+    .about-page .developer-card,
+    .about-page .devPhoto img,
+    .about-page .credBut {
+        transition: none;
+    }
+}
