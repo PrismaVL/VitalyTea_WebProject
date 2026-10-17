@@ -29,111 +29,665 @@
         </button>
     </nav>
 
+    <!-- Page Introduction Header -->
+    <header class="menu-hero-header">
+        <span class="menu-hero-tag">Handcrafted &amp; Fresh Daily</span>
+        <h1 class="menu-hero-title">Our Cafe Menu</h1>
+        <p class="menu-hero-subtitle">Explore our artisan warm coffees, freshly toasted gourmet sandwiches, and handcrafted iced creations.</p>
+    </header>
 
-    <main class="carousel-container">
-        <div class="carousel-wrapper">
-            <div class="custom-header">
-                <img style="user-select: none;" draggable="false" src="../images/menu/warmdrinks.png" alt="warmdrinks.png">
-            </div>
-            <div class="carousel" id="carousel1">
-                <div class="carousel-inner">
-                    <div class="carousel-item" data-name="Cappuccino" data-sizes='{"Small": 89.00, "Medium": 99.00, "Large": 119.00}'>
-                        <img style="user-select: none;" draggable="false" src="../images/menu/hd/cap.png" alt="Image 1">
-                    </div>
-                    <div class="carousel-item" data-name="Caranel White Mocha" data-sizes='{"Small": 79.00, "Medium": 85.00, "Large": 95.00}'>
-                        <img style="user-select: none;" draggable="false" src="../images/menu/hd/cvwm.png" alt="Image 2">
-                    </div>
-                    <div class="carousel-item" data-name="Espresso" data-sizes='{"Small": 79.00, "Medium": 89.00, "Large": 99.00}'>
-                        <img style="user-select: none;" draggable="false" src="../images/menu/hd/espp.png" alt="Image 3">
-                    </div>
-                    <div class="carousel-item" data-name="Hot Choco" data-sizes='{"Small": 89.00, "Medium": 99.00, "Large": 119.00}'>
-                        <img style="user-select: none;" draggable="false" src="../images/menu/hd/hothcho.png" alt="Image 4">
-                    </div>
-                    <div class="carousel-item" data-name="Chai Tea" data-sizes='{"Small": 79.00, "Medium": 85.00, "Large": 95.00}'>
-                        <img style="user-select: none;" draggable="false" src="../images/menu/hd/tete.png" alt="Image 5">
-                    </div>
+    <!-- Main Carousel Grid Container -->
+    <main class="carousel-container" role="region" aria-label="Menu categories">
+        
+        <!-- Category 1: Warm Drinks -->
+        <section class="carousel-wrapper" aria-labelledby="cat-warm-drinks">
+            <div class="category-header">
+                <span class="category-badge">Cozy Brews</span>
+                <div class="category-art-title">
+                    <img class="category-img" src="../images/menu/warmdrinks.png" alt="Warm Drinks">
                 </div>
-                <button class="carousel-control prev" onclick="prevSlide('carousel1')" aria-label="Previous slide">&#10094;</button>
-                <button class="carousel-control next" onclick="nextSlide('carousel1')" aria-label="Next slide">&#10095;</button>
+                <p class="category-desc" id="cat-warm-drinks">Freshly brewed coffee &amp; artisan teas</p>
             </div>
-        </div>
-        <div class="carousel-wrapper" id="carowrap">
-            <div class="custom-header">
-                <img style="user-select: none;" draggable="false" src="../images/menu/sandwiches.png" alt="sandwiches.png">
-            </div>
-            <div class="carousel" id="carousel2">
+            
+            <div class="carousel" id="carousel1" role="region" aria-label="Warm Drinks Carousel">
                 <div class="carousel-inner">
-                    <div class="carousel-item" data-name="BLT" data-price="219.00">
-                        <img style="user-select: none;" draggable="false" src="../images/menu/sd/bltt.png" alt="BLT">
-                    </div>
-                    <div class="carousel-item" data-name="Chicken Teriyaki" data-price="225.00">
-                        <img style="user-select: none;" draggable="false" src="../images/menu/sd/ct.png" alt="Chicken Teriyaki">
-                    </div>
-                    <div class="carousel-item" data-name="Egg Mayo" data-price="200.00">
-                        <img style="user-select: none;" draggable="false" src="../images/menu/sd/em.png" alt="Egg Mayo">
-                    </div>
-                    <div class="carousel-item" data-name="Ham" data-price="215.00">
-                        <img style="user-select: none;" draggable="false" src="../images/menu/sd/hm.png" alt="Ham">
-                    </div>
-                    <div class="carousel-item" data-name="Ham and Cheese" data-price="199.00">
-                        <img style="user-select: none;" draggable="false" src="../images/menu/sd/hac.png" alt="Ham and Cheese">
-                    </div>
-                    <div class="carousel-item" data-name="Meatball Marinara" data-price="225.00">
-                        <img style="user-select: none;" draggable="false" src="../images/menu/sd/mm.png" alt="Meatball Marinara">
-                    </div>
-                    <div class="carousel-item" data-name="Roasted Beef" data-price="215.00">
-                        <img style="user-select: none;" draggable="false" src="../images/menu/sd/rb.png" alt="Roasted Beef">
-                    </div>
-                    <div class="carousel-item" data-name="Spicy Ham" data-price="239.00">
-                        <img style="user-select: none;" draggable="false" src="../images/menu/sd/sh.png" alt="Spicy Ham">
-                    </div>
-                    <div class="carousel-item" data-name="Tuna" data-price="209.00">
-                        <img style="user-select: none;" draggable="false" src="../images/menu/sd/t.png" alt="Tuna">
-                    </div>
-                    <div class="carousel-item" data-name="Veggie Greens" data-price="229.00">
-                        <img style="user-select: none;" draggable="false" src="../images/menu/sd/vg.png" alt="Veggie Greens">
-                    </div>
+                    <!-- Item 1: Cappuccino -->
+                    <article class="carousel-item menu-card product-drink warm-drink" id="item-cappuccino" data-name="Cappuccino" data-sizes='{"Small": 89.00, "Medium": 99.00, "Large": 119.00}'>
+                        <div class="card-meta-bar">
+                            <span class="product-badge">Best Seller</span>
+                            <span class="item-index-counter">1 of 5</span>
+                        </div>
+                        <div class="product-crop-frame" title="Click to view options">
+                            <img class="product-img" src="../images/menu/hd/cap.png" alt="Cappuccino">
+                        </div>
+                        <div class="product-details">
+                            <p class="product-description">Rich espresso balanced with velvety steamed milk foam and dusted with cocoa.</p>
+                            <div class="product-pricing" role="group" aria-label="Size options">
+                                <span class="size-chip" data-size="Small"><span class="chip-label">S</span> ₱89.00</span>
+                                <span class="size-chip" data-size="Medium"><span class="chip-label">M</span> ₱99.00</span>
+                                <span class="size-chip" data-size="Large"><span class="chip-label">L</span> ₱119.00</span>
+                            </div>
+                            <button class="add-to-cart-btn" type="button">
+                                <span>Add to Order</span>
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6h15l-1.5 9h-13z"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M6 6H3"/></svg>
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Item 2: Caramel White Mocha -->
+                    <article class="carousel-item menu-card product-drink warm-drink" id="item-caramel-white-mocha" data-name="Caramel White Mocha" data-sizes='{"Small": 79.00, "Medium": 85.00, "Large": 95.00}'>
+                        <div class="card-meta-bar">
+                            <span class="product-badge">Sweet &amp; Creamy</span>
+                            <span class="item-index-counter">2 of 5</span>
+                        </div>
+                        <div class="product-crop-frame" title="Click to view options">
+                            <img class="product-img" src="../images/menu/hd/cvwm.png" alt="Caramel White Mocha">
+                        </div>
+                        <div class="product-details">
+                            <p class="product-description">Smooth white chocolate mocha swirled with rich buttery caramel drizzle.</p>
+                            <div class="product-pricing" role="group" aria-label="Size options">
+                                <span class="size-chip" data-size="Small"><span class="chip-label">S</span> ₱79.00</span>
+                                <span class="size-chip" data-size="Medium"><span class="chip-label">M</span> ₱85.00</span>
+                                <span class="size-chip" data-size="Large"><span class="chip-label">L</span> ₱95.00</span>
+                            </div>
+                            <button class="add-to-cart-btn" type="button">
+                                <span>Add to Order</span>
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6h15l-1.5 9h-13z"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M6 6H3"/></svg>
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Item 3: Espresso -->
+                    <article class="carousel-item menu-card product-drink warm-drink" id="item-espresso" data-name="Espresso" data-sizes='{"Small": 79.00, "Medium": 89.00, "Large": 99.00}'>
+                        <div class="card-meta-bar">
+                            <span class="product-badge">Bold &amp; Pure</span>
+                            <span class="item-index-counter">3 of 5</span>
+                        </div>
+                        <div class="product-crop-frame" title="Click to view options">
+                            <img class="product-img" src="../images/menu/hd/espp.png" alt="Espresso">
+                        </div>
+                        <div class="product-details">
+                            <p class="product-description">Intense shot of freshly ground dark roast coffee beans topped with rich golden crema.</p>
+                            <div class="product-pricing" role="group" aria-label="Size options">
+                                <span class="size-chip" data-size="Small"><span class="chip-label">S</span> ₱79.00</span>
+                                <span class="size-chip" data-size="Medium"><span class="chip-label">M</span> ₱89.00</span>
+                                <span class="size-chip" data-size="Large"><span class="chip-label">L</span> ₱99.00</span>
+                            </div>
+                            <button class="add-to-cart-btn" type="button">
+                                <span>Add to Order</span>
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6h15l-1.5 9h-13z"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M6 6H3"/></svg>
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Item 4: Hot Choco -->
+                    <article class="carousel-item menu-card product-drink warm-drink" id="item-hot-choco" data-name="Hot Choco" data-sizes='{"Small": 89.00, "Medium": 99.00, "Large": 119.00}'>
+                        <div class="card-meta-bar">
+                            <span class="product-badge">Comfort Classic</span>
+                            <span class="item-index-counter">4 of 5</span>
+                        </div>
+                        <div class="product-crop-frame" title="Click to view options">
+                            <img class="product-img" src="../images/menu/hd/hothcho.png" alt="Hot Choco">
+                        </div>
+                        <div class="product-details">
+                            <p class="product-description">Decadent cocoa melted with silky steamed whole milk for the ultimate cozy warmth.</p>
+                            <div class="product-pricing" role="group" aria-label="Size options">
+                                <span class="size-chip" data-size="Small"><span class="chip-label">S</span> ₱89.00</span>
+                                <span class="size-chip" data-size="Medium"><span class="chip-label">M</span> ₱99.00</span>
+                                <span class="size-chip" data-size="Large"><span class="chip-label">L</span> ₱119.00</span>
+                            </div>
+                            <button class="add-to-cart-btn" type="button">
+                                <span>Add to Order</span>
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6h15l-1.5 9h-13z"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M6 6H3"/></svg>
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Item 5: Chai Tea -->
+                    <article class="carousel-item menu-card product-drink warm-drink" id="item-chai-tea" data-name="Chai Tea" data-sizes='{"Small": 79.00, "Medium": 85.00, "Large": 95.00}'>
+                        <div class="card-meta-bar">
+                            <span class="product-badge">Spiced &amp; Herbal</span>
+                            <span class="item-index-counter">5 of 5</span>
+                        </div>
+                        <div class="product-crop-frame" title="Click to view options">
+                            <img class="product-img" src="../images/menu/hd/tete.png" alt="Chai Tea">
+                        </div>
+                        <div class="product-details">
+                            <p class="product-description">Aromatic blend of black tea, cinnamon, cardamom and cloves infused with warm milk.</p>
+                            <div class="product-pricing" role="group" aria-label="Size options">
+                                <span class="size-chip" data-size="Small"><span class="chip-label">S</span> ₱79.00</span>
+                                <span class="size-chip" data-size="Medium"><span class="chip-label">M</span> ₱85.00</span>
+                                <span class="size-chip" data-size="Large"><span class="chip-label">L</span> ₱95.00</span>
+                            </div>
+                            <button class="add-to-cart-btn" type="button">
+                                <span>Add to Order</span>
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6h15l-1.5 9h-13z"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M6 6H3"/></svg>
+                            </button>
+                        </div>
+                    </article>
                 </div>
-                <button class="carousel-control prev" onclick="prevSlide('carousel2')" aria-label="Previous slide">&#10094;</button>
-                <button class="carousel-control next" onclick="nextSlide('carousel2')" aria-label="Next slide">&#10095;</button>
+
+                <!-- Carousel Controls & Pagination -->
+                <nav class="carousel-nav-bar" aria-label="Warm Drinks Navigation">
+                    <button class="carousel-control prev" onclick="prevSlide('carousel1')" aria-label="Previous warm drink" type="button">
+                        <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+                    </button>
+                    <div class="carousel-dots" aria-label="Slide indicators"></div>
+                    <button class="carousel-control next" onclick="nextSlide('carousel1')" aria-label="Next warm drink" type="button">
+                        <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+                    </button>
+                </nav>
             </div>
-        </div>
-        <div class="carousel-wrapper" id="carowrap2">
-            <div class="custom-header">
-                <img id="cd1" style="user-select: none;" draggable="false" src="../images/menu/colddrinks.png" alt="colddrinks.png">
+        </section>
+
+        <!-- Category 2: Sandwiches -->
+        <section class="carousel-wrapper" aria-labelledby="cat-sandwiches">
+            <div class="category-header">
+                <span class="category-badge">Fresh &amp; Savory</span>
+                <div class="category-art-title">
+                    <img class="category-img" src="../images/menu/sandwiches.png" alt="Sandwiches">
+                </div>
+                <p class="category-desc" id="cat-sandwiches">Gourmet toasted subs &amp; artisan fillings</p>
             </div>
-            <div class="carousel" id="carousel3">
+
+            <div class="carousel" id="carousel2" role="region" aria-label="Sandwiches Carousel">
                 <div class="carousel-inner">
-                    <div class="carousel-item" data-name="Brown Sugar Pearl" data-sizes='{"Small": 79.00, "Medium": 85.00, "Large": 95.00}'>
-                        <img style="user-select: none;" draggable="false" src="../images/menu/cd/brownsugg.png" alt="Image 4">
-                    </div>
-                    <div class="carousel-item" data-name="Cold Brew" data-sizes='{"Small": 79.00, "Medium": 85.00, "Large": 95.00}'>
-                        <img style="user-select: none;" draggable="false" src="../images/menu/cd/cbrw.png" alt="Image 5">
-                    </div>
-                    <div class="carousel-item" data-name="Caramel Macchiato" data-sizes='{"Small": 89.00, "Medium": 99.00, "Large": 119.00}'>
-                        <img style="user-select: none;" draggable="false" src="../images/menu/cd/camac.png" alt="Image 6">
-                    </div>
-                    <div class="carousel-item" data-name="Cookies n Cream Frappe" data-sizes='{"Small": 95.00, "Medium": 105.00, "Large": 115.00}'>
-                        <img style="user-select: none;" draggable="false" src="../images/menu/cd/cncc.png" alt="Image 7">
-                    </div>
-                    <div class="carousel-item" data-name="Java Chip Frappe" data-sizes='{"Small": 89.00, "Medium": 99.00, "Large": 119.00}'>
-                        <img style="user-select: none;" draggable="false" src="../images/menu/cd/javac.png" alt="Image 8">
-                    </div>
-                    <div class="carousel-item" data-name="Matcha Latte" data-sizes='{"Small": 89.00, "Medium": 99.00, "Large": 119.00}'>
-                        <img style="user-select: none;" draggable="false" src="../images/menu/cd/match.png" alt="Image 9">
-                    </div>
-                    <div class="carousel-item" data-name="Strawberry Frappe" data-sizes='{"Small": 89.00, "Medium": 99.00, "Large": 119.00}'>
-                        <img style="user-select: none;" draggable="false" src="../images/menu/cd/strawb.png" alt="Image 10">
-                    </div>
+                    <!-- Sandwich 1: BLT -->
+                    <article class="carousel-item menu-card product-sandwich" id="item-blt" data-name="BLT" data-price="219.00">
+                        <div class="card-meta-bar">
+                            <span class="product-badge">Customer Favorite</span>
+                            <span class="item-index-counter">1 of 10</span>
+                        </div>
+                        <div class="product-crop-frame" title="Click to view options">
+                            <img class="product-img" src="../images/menu/sd/bltt.png" alt="BLT Sandwich">
+                        </div>
+                        <div class="product-details">
+                            <p class="product-description">Crispy cured bacon strips, fresh garden greens, and juicy tomatoes on toasted sub.</p>
+                            <div class="product-pricing single-price">
+                                <span class="price-badge-single">₱219.00</span>
+                                <span class="serving-label">Toasted &amp; Fresh</span>
+                            </div>
+                            <button class="add-to-cart-btn" type="button">
+                                <span>Add to Order</span>
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6h15l-1.5 9h-13z"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M6 6H3"/></svg>
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Sandwich 2: Chicken Teriyaki -->
+                    <article class="carousel-item menu-card product-sandwich" id="item-chicken-teriyaki" data-name="Chicken Teriyaki" data-price="225.00">
+                        <div class="card-meta-bar">
+                            <span class="product-badge">Savory Glazed</span>
+                            <span class="item-index-counter">2 of 10</span>
+                        </div>
+                        <div class="product-crop-frame" title="Click to view options">
+                            <img class="product-img" src="../images/menu/sd/ct.png" alt="Chicken Teriyaki Sandwich">
+                        </div>
+                        <div class="product-details">
+                            <p class="product-description">Tender grilled chicken tossed in sweet-savory teriyaki reduction with sesame slaw.</p>
+                            <div class="product-pricing single-price">
+                                <span class="price-badge-single">₱225.00</span>
+                                <span class="serving-label">Toasted &amp; Fresh</span>
+                            </div>
+                            <button class="add-to-cart-btn" type="button">
+                                <span>Add to Order</span>
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6h15l-1.5 9h-13z"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M6 6H3"/></svg>
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Sandwich 3: Egg Mayo -->
+                    <article class="carousel-item menu-card product-sandwich" id="item-egg-mayo" data-name="Egg Mayo" data-price="200.00">
+                        <div class="card-meta-bar">
+                            <span class="product-badge">Creamy Delight</span>
+                            <span class="item-index-counter">3 of 10</span>
+                        </div>
+                        <div class="product-crop-frame" title="Click to view options">
+                            <img class="product-img" src="../images/menu/sd/em.png" alt="Egg Mayo Sandwich">
+                        </div>
+                        <div class="product-details">
+                            <p class="product-description">Fluffy seasoned eggs whipped with Japanese Kewpie mayonnaise and cracked black pepper.</p>
+                            <div class="product-pricing single-price">
+                                <span class="price-badge-single">₱200.00</span>
+                                <span class="serving-label">Toasted &amp; Fresh</span>
+                            </div>
+                            <button class="add-to-cart-btn" type="button">
+                                <span>Add to Order</span>
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6h15l-1.5 9h-13z"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M6 6H3"/></svg>
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Sandwich 4: Ham -->
+                    <article class="carousel-item menu-card product-sandwich" id="item-ham" data-name="Ham" data-price="215.00">
+                        <div class="card-meta-bar">
+                            <span class="product-badge">Classic Deli</span>
+                            <span class="item-index-counter">4 of 10</span>
+                        </div>
+                        <div class="product-crop-frame" title="Click to view options">
+                            <img class="product-img" src="../images/menu/sd/hm.png" alt="Ham Sandwich">
+                        </div>
+                        <div class="product-details">
+                            <p class="product-description">Sliced cured ham piled high with crisp green leaf lettuce and honey dijon mustard.</p>
+                            <div class="product-pricing single-price">
+                                <span class="price-badge-single">₱215.00</span>
+                                <span class="serving-label">Toasted &amp; Fresh</span>
+                            </div>
+                            <button class="add-to-cart-btn" type="button">
+                                <span>Add to Order</span>
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6h15l-1.5 9h-13z"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M6 6H3"/></svg>
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Sandwich 5: Ham and Cheese -->
+                    <article class="carousel-item menu-card product-sandwich" id="item-ham-and-cheese" data-name="Ham and Cheese" data-price="199.00">
+                        <div class="card-meta-bar">
+                            <span class="product-badge">Melted Favorite</span>
+                            <span class="item-index-counter">5 of 10</span>
+                        </div>
+                        <div class="product-crop-frame" title="Click to view options">
+                            <img class="product-img" src="../images/menu/sd/hac.png" alt="Ham and Cheese Sandwich">
+                        </div>
+                        <div class="product-details">
+                            <p class="product-description">Warm savory ham layered with creamy melted sharp cheddar in a crusty bread pocket.</p>
+                            <div class="product-pricing single-price">
+                                <span class="price-badge-single">₱199.00</span>
+                                <span class="serving-label">Toasted &amp; Fresh</span>
+                            </div>
+                            <button class="add-to-cart-btn" type="button">
+                                <span>Add to Order</span>
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6h15l-1.5 9h-13z"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M6 6H3"/></svg>
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Sandwich 6: Meatball Marinara -->
+                    <article class="carousel-item menu-card product-sandwich" id="item-meatball-marinara" data-name="Meatball Marinara" data-price="225.00">
+                        <div class="card-meta-bar">
+                            <span class="product-badge">Hearty &amp; Warm</span>
+                            <span class="item-index-counter">6 of 10</span>
+                        </div>
+                        <div class="product-crop-frame" title="Click to view options">
+                            <img class="product-img" src="../images/menu/sd/mm.png" alt="Meatball Marinara Sandwich">
+                        </div>
+                        <div class="product-details">
+                            <p class="product-description">Juicy Italian-style meatballs steeped in slow-simmered herb tomato marinara and herbs.</p>
+                            <div class="product-pricing single-price">
+                                <span class="price-badge-single">₱225.00</span>
+                                <span class="serving-label">Toasted &amp; Fresh</span>
+                            </div>
+                            <button class="add-to-cart-btn" type="button">
+                                <span>Add to Order</span>
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6h15l-1.5 9h-13z"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M6 6H3"/></svg>
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Sandwich 7: Roasted Beef -->
+                    <article class="carousel-item menu-card product-sandwich" id="item-roasted-beef" data-name="Roasted Beef" data-price="215.00">
+                        <div class="card-meta-bar">
+                            <span class="product-badge">Chef's Choice</span>
+                            <span class="item-index-counter">7 of 10</span>
+                        </div>
+                        <div class="product-crop-frame" title="Click to view options">
+                            <img class="product-img" src="../images/menu/sd/rb.png" alt="Roasted Beef Sandwich">
+                        </div>
+                        <div class="product-details">
+                            <p class="product-description">Slow roasted beef shaved thin, accompanied by caramelized onions and garlic crema.</p>
+                            <div class="product-pricing single-price">
+                                <span class="price-badge-single">₱215.00</span>
+                                <span class="serving-label">Toasted &amp; Fresh</span>
+                            </div>
+                            <button class="add-to-cart-btn" type="button">
+                                <span>Add to Order</span>
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6h15l-1.5 9h-13z"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M6 6H3"/></svg>
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Sandwich 8: Spicy Ham -->
+                    <article class="carousel-item menu-card product-sandwich" id="item-spicy-ham" data-name="Spicy Ham" data-price="239.00">
+                        <div class="card-meta-bar">
+                            <span class="product-badge">Spicy Kick</span>
+                            <span class="item-index-counter">8 of 10</span>
+                        </div>
+                        <div class="product-crop-frame" title="Click to view options">
+                            <img class="product-img" src="../images/menu/sd/sh.png" alt="Spicy Ham Sandwich">
+                        </div>
+                        <div class="product-details">
+                            <p class="product-description">Zesty peppered ham garnished with diced jalapeños, red onions, and sriracha mayo.</p>
+                            <div class="product-pricing single-price">
+                                <span class="price-badge-single">₱239.00</span>
+                                <span class="serving-label">Toasted &amp; Fresh</span>
+                            </div>
+                            <button class="add-to-cart-btn" type="button">
+                                <span>Add to Order</span>
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6h15l-1.5 9h-13z"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M6 6H3"/></svg>
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Sandwich 9: Tuna -->
+                    <article class="carousel-item menu-card product-sandwich" id="item-tuna" data-name="Tuna" data-price="209.00">
+                        <div class="card-meta-bar">
+                            <span class="product-badge">Ocean Fresh</span>
+                            <span class="item-index-counter">9 of 10</span>
+                        </div>
+                        <div class="product-crop-frame" title="Click to view options">
+                            <img class="product-img" src="../images/menu/sd/t.png" alt="Tuna Sandwich">
+                        </div>
+                        <div class="product-details">
+                            <p class="product-description">Line-caught skipjack tuna flakes with diced celery, dill, and light lemon dressing.</p>
+                            <div class="product-pricing single-price">
+                                <span class="price-badge-single">₱209.00</span>
+                                <span class="serving-label">Toasted &amp; Fresh</span>
+                            </div>
+                            <button class="add-to-cart-btn" type="button">
+                                <span>Add to Order</span>
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6h15l-1.5 9h-13z"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M6 6H3"/></svg>
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Sandwich 10: Veggie Greens -->
+                    <article class="carousel-item menu-card product-sandwich" id="item-veggie-greens" data-name="Veggie Greens" data-price="229.00">
+                        <div class="card-meta-bar">
+                            <span class="product-badge">Healthy Choice</span>
+                            <span class="item-index-counter">10 of 10</span>
+                        </div>
+                        <div class="product-crop-frame" title="Click to view options">
+                            <img class="product-img" src="../images/menu/sd/vg.png" alt="Veggie Greens Sandwich">
+                        </div>
+                        <div class="product-details">
+                            <p class="product-description">Fresh garden cucumbers, bell peppers, sliced avocado, and baby greens on wheat bread.</p>
+                            <div class="product-pricing single-price">
+                                <span class="price-badge-single">₱229.00</span>
+                                <span class="serving-label">Toasted &amp; Fresh</span>
+                            </div>
+                            <button class="add-to-cart-btn" type="button">
+                                <span>Add to Order</span>
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6h15l-1.5 9h-13z"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M6 6H3"/></svg>
+                            </button>
+                        </div>
+                    </article>
                 </div>
-                <button class="carousel-control prev" onclick="prevSlide('carousel3')" aria-label="Previous slide">&#10094;</button>
-                <button class="carousel-control next" onclick="nextSlide('carousel3')" aria-label="Next slide">&#10095;</button>
+
+                <!-- Carousel Controls & Pagination -->
+                <nav class="carousel-nav-bar" aria-label="Sandwiches Navigation">
+                    <button class="carousel-control prev" onclick="prevSlide('carousel2')" aria-label="Previous sandwich" type="button">
+                        <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+                    </button>
+                    <div class="carousel-dots" aria-label="Slide indicators"></div>
+                    <button class="carousel-control next" onclick="nextSlide('carousel2')" aria-label="Next sandwich" type="button">
+                        <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+                    </button>
+                </nav>
             </div>
-        </div>
+        </section>
+
+        <!-- Category 3: Cold Drinks -->
+        <section class="carousel-wrapper" aria-labelledby="cat-cold-drinks">
+            <div class="category-header">
+                <span class="category-badge">Iced Delights</span>
+                <div class="category-art-title">
+                    <img class="category-img" src="../images/menu/colddrinks.png" alt="Cold Drinks">
+                </div>
+                <p class="category-desc" id="cat-cold-drinks">Frappes, cold brews &amp; pearl milk teas</p>
+            </div>
+
+            <div class="carousel" id="carousel3" role="region" aria-label="Cold Drinks Carousel">
+                <div class="carousel-inner">
+                    <!-- Cold Drink 1: Brown Sugar Pearl -->
+                    <article class="carousel-item menu-card product-drink cold-drink" id="item-brown-sugar-pearl" data-name="Brown Sugar Pearl" data-sizes='{"Small": 79.00, "Medium": 85.00, "Large": 95.00}'>
+                        <div class="card-meta-bar">
+                            <span class="product-badge">House Special</span>
+                            <span class="item-index-counter">1 of 7</span>
+                        </div>
+                        <div class="product-crop-frame" title="Click to view options">
+                            <img class="product-img" src="../images/menu/cd/brownsugg.png" alt="Brown Sugar Pearl">
+                        </div>
+                        <div class="product-details">
+                            <p class="product-description">Slow-cooked chewy boba pearls smothered in molten brown sugar and farm-fresh chilled milk.</p>
+                            <div class="product-pricing" role="group" aria-label="Size options">
+                                <span class="size-chip" data-size="Small"><span class="chip-label">S</span> ₱79.00</span>
+                                <span class="size-chip" data-size="Medium"><span class="chip-label">M</span> ₱85.00</span>
+                                <span class="size-chip" data-size="Large"><span class="chip-label">L</span> ₱95.00</span>
+                            </div>
+                            <button class="add-to-cart-btn" type="button">
+                                <span>Add to Order</span>
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6h15l-1.5 9h-13z"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M6 6H3"/></svg>
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Cold Drink 2: Cold Brew -->
+                    <article class="carousel-item menu-card product-drink cold-drink" id="item-cold-brew" data-name="Cold Brew" data-sizes='{"Small": 79.00, "Medium": 85.00, "Large": 95.00}'>
+                        <div class="card-meta-bar">
+                            <span class="product-badge">18-Hour Steep</span>
+                            <span class="item-index-counter">2 of 7</span>
+                        </div>
+                        <div class="product-crop-frame" title="Click to view options">
+                            <img class="product-img" src="../images/menu/cd/cbrw.png" alt="Cold Brew">
+                        </div>
+                        <div class="product-details">
+                            <p class="product-description">Single-origin coffee beans steeped cold for eighteen hours for naturally sweet, smooth notes.</p>
+                            <div class="product-pricing" role="group" aria-label="Size options">
+                                <span class="size-chip" data-size="Small"><span class="chip-label">S</span> ₱79.00</span>
+                                <span class="size-chip" data-size="Medium"><span class="chip-label">M</span> ₱85.00</span>
+                                <span class="size-chip" data-size="Large"><span class="chip-label">L</span> ₱95.00</span>
+                            </div>
+                            <button class="add-to-cart-btn" type="button">
+                                <span>Add to Order</span>
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6h15l-1.5 9h-13z"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M6 6H3"/></svg>
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Cold Drink 3: Caramel Macchiato -->
+                    <article class="carousel-item menu-card product-drink cold-drink" id="item-caramel-macchiato" data-name="Caramel Macchiato" data-sizes='{"Small": 89.00, "Medium": 99.00, "Large": 119.00}'>
+                        <div class="card-meta-bar">
+                            <span class="product-badge">Silky Layers</span>
+                            <span class="item-index-counter">3 of 7</span>
+                        </div>
+                        <div class="product-crop-frame" title="Click to view options">
+                            <img class="product-img" src="../images/menu/cd/camac.png" alt="Caramel Macchiato">
+                        </div>
+                        <div class="product-details">
+                            <p class="product-description">Freshly pulled espresso layered over cold vanilla-scented milk and ribbons of caramel.</p>
+                            <div class="product-pricing" role="group" aria-label="Size options">
+                                <span class="size-chip" data-size="Small"><span class="chip-label">S</span> ₱89.00</span>
+                                <span class="size-chip" data-size="Medium"><span class="chip-label">M</span> ₱99.00</span>
+                                <span class="size-chip" data-size="Large"><span class="chip-label">L</span> ₱119.00</span>
+                            </div>
+                            <button class="add-to-cart-btn" type="button">
+                                <span>Add to Order</span>
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6h15l-1.5 9h-13z"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M6 6H3"/></svg>
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Cold Drink 4: Cookies n Cream Frappe -->
+                    <article class="carousel-item menu-card product-drink cold-drink" id="item-cookies-cream-frappe" data-name="Cookies n Cream Frappe" data-sizes='{"Small": 95.00, "Medium": 105.00, "Large": 115.00}'>
+                        <div class="card-meta-bar">
+                            <span class="product-badge">Decadent Crunch</span>
+                            <span class="item-index-counter">4 of 7</span>
+                        </div>
+                        <div class="product-crop-frame" title="Click to view options">
+                            <img class="product-img" src="../images/menu/cd/cncc.png" alt="Cookies n Cream Frappe">
+                        </div>
+                        <div class="product-details">
+                            <p class="product-description">Blended vanilla cream and crushed chocolate sandwich cookies topped with whipped cream.</p>
+                            <div class="product-pricing" role="group" aria-label="Size options">
+                                <span class="size-chip" data-size="Small"><span class="chip-label">S</span> ₱95.00</span>
+                                <span class="size-chip" data-size="Medium"><span class="chip-label">M</span> ₱105.00</span>
+                                <span class="size-chip" data-size="Large"><span class="chip-label">L</span> ₱115.00</span>
+                            </div>
+                            <button class="add-to-cart-btn" type="button">
+                                <span>Add to Order</span>
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6h15l-1.5 9h-13z"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M6 6H3"/></svg>
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Cold Drink 5: Java Chip Frappe -->
+                    <article class="carousel-item menu-card product-drink cold-drink" id="item-java-chip-frappe" data-name="Java Chip Frappe" data-sizes='{"Small": 89.00, "Medium": 99.00, "Large": 119.00}'>
+                        <div class="card-meta-bar">
+                            <span class="product-badge">Mocha Crisp</span>
+                            <span class="item-index-counter">5 of 7</span>
+                        </div>
+                        <div class="product-crop-frame" title="Click to view options">
+                            <img class="product-img" src="../images/menu/cd/javac.png" alt="Java Chip Frappe">
+                        </div>
+                        <div class="product-details">
+                            <p class="product-description">Espresso mocha blended with crunchy Belgian chocolate chips and dark cocoa drizzle.</p>
+                            <div class="product-pricing" role="group" aria-label="Size options">
+                                <span class="size-chip" data-size="Small"><span class="chip-label">S</span> ₱89.00</span>
+                                <span class="size-chip" data-size="Medium"><span class="chip-label">M</span> ₱99.00</span>
+                                <span class="size-chip" data-size="Large"><span class="chip-label">L</span> ₱119.00</span>
+                            </div>
+                            <button class="add-to-cart-btn" type="button">
+                                <span>Add to Order</span>
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6h15l-1.5 9h-13z"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M6 6H3"/></svg>
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Cold Drink 6: Matcha Latte -->
+                    <article class="carousel-item menu-card product-drink cold-drink" id="item-matcha-latte" data-name="Matcha Latte" data-sizes='{"Small": 89.00, "Medium": 99.00, "Large": 119.00}'>
+                        <div class="card-meta-bar">
+                            <span class="product-badge">Ceremonial Uji</span>
+                            <span class="item-index-counter">6 of 7</span>
+                        </div>
+                        <div class="product-crop-frame" title="Click to view options">
+                            <img class="product-img" src="../images/menu/cd/match.png" alt="Matcha Latte">
+                        </div>
+                        <div class="product-details">
+                            <p class="product-description">Stone-ground Japanese green tea ceremonial matcha whisked with chilled sweetened milk.</p>
+                            <div class="product-pricing" role="group" aria-label="Size options">
+                                <span class="size-chip" data-size="Small"><span class="chip-label">S</span> ₱89.00</span>
+                                <span class="size-chip" data-size="Medium"><span class="chip-label">M</span> ₱99.00</span>
+                                <span class="size-chip" data-size="Large"><span class="chip-label">L</span> ₱119.00</span>
+                            </div>
+                            <button class="add-to-cart-btn" type="button">
+                                <span>Add to Order</span>
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6h15l-1.5 9h-13z"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M6 6H3"/></svg>
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Cold Drink 7: Strawberry Frappe -->
+                    <article class="carousel-item menu-card product-drink cold-drink" id="item-strawberry-frappe" data-name="Strawberry Frappe" data-sizes='{"Small": 89.00, "Medium": 99.00, "Large": 119.00}'>
+                        <div class="card-meta-bar">
+                            <span class="product-badge">Berry Refresh</span>
+                            <span class="item-index-counter">7 of 7</span>
+                        </div>
+                        <div class="product-crop-frame" title="Click to view options">
+                            <img class="product-img" src="../images/menu/cd/strawb.png" alt="Strawberry Frappe">
+                        </div>
+                        <div class="product-details">
+                            <p class="product-description">Wild field strawberries pureed with smooth chilled sweet cream and fruit reduction.</p>
+                            <div class="product-pricing" role="group" aria-label="Size options">
+                                <span class="size-chip" data-size="Small"><span class="chip-label">S</span> ₱89.00</span>
+                                <span class="size-chip" data-size="Medium"><span class="chip-label">M</span> ₱99.00</span>
+                                <span class="size-chip" data-size="Large"><span class="chip-label">L</span> ₱119.00</span>
+                            </div>
+                            <button class="add-to-cart-btn" type="button">
+                                <span>Add to Order</span>
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6h15l-1.5 9h-13z"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M6 6H3"/></svg>
+                            </button>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Carousel Controls & Pagination -->
+                <nav class="carousel-nav-bar" aria-label="Cold Drinks Navigation">
+                    <button class="carousel-control prev" onclick="prevSlide('carousel3')" aria-label="Previous cold drink" type="button">
+                        <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+                    </button>
+                    <div class="carousel-dots" aria-label="Slide indicators"></div>
+                    <button class="carousel-control next" onclick="nextSlide('carousel3')" aria-label="Next cold drink" type="button">
+                        <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+                    </button>
+                </nav>
+            </div>
+        </section>
     </main>
-    <div id="checkoutButtonContainer">
-        <button id="checkoutButton" style="display: none;" onclick="window.location.href = 'order.html';">Proceed to Checkout</button>
+
+    <!-- Floating Checkout Bar (Appears when cart has items) -->
+    <aside id="checkoutBar" class="checkout-bar is-hidden" aria-label="Cart Summary Bar">
+        <div class="checkout-bar-content">
+            <div class="cart-summary-info">
+                <span class="cart-icon-badge" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                    <span id="cartCountBadge" class="count-badge">0</span>
+                </span>
+                <div class="cart-text">
+                    <span id="cartItemsText" class="cart-items-text">0 items selected</span>
+                    <span id="cartTotalText" class="cart-total-text">₱0.00</span>
+                </div>
+            </div>
+            <button id="checkoutButton" class="checkout-action-btn" type="button" onclick="window.location.href = 'order.html';">
+                <span>Proceed to Checkout</span>
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Animated Feedback Toast Notification -->
+    <div id="toastNotification" class="toast-notification" role="status" aria-live="polite">
+        <div class="toast-icon" aria-hidden="true">✓</div>
+        <div class="toast-body">
+            <p id="toastMessage" class="toast-message">Item added to cart</p>
+        </div>
+        <a href="order.html" class="toast-link">View Cart</a>
     </div>
+
+    <!-- Modern Order Modal -->
+    <div id="itemModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalItemName">
+        <div class="modal-backdrop" onclick="closeModal()"></div>
+        <div class="modal-dialog">
+            <button class="modal-close" type="button" onclick="closeModal()" aria-label="Close dialog">&times;</button>
+            <div class="modal-header">
+                <span id="modalCategoryBadge" class="modal-category-badge">VitalyTea Menu</span>
+                <h2 id="modalItemName" class="modal-title"></h2>
+                <p id="modalItemDesc" class="modal-desc"></p>
+            </div>
+            <form id="itemForm" class="modal-form">
+                <div id="modalSizeGroup" class="form-group size-group">
+                    <label class="form-label">Select Size:</label>
+                    <div id="sizeOptionsGrid" class="size-options-grid" role="radiogroup" aria-label="Select drink size"></div>
+                    <select id="size" name="size" class="sr-only" aria-label="Hidden size select"></select>
+                </div>
+
+                <div class="form-group quantity-group">
+                    <label class="form-label" for="quantity">Quantity:</label>
+                    <div class="quantity-stepper">
+                        <button type="button" class="stepper-btn" onclick="stepQuantity(-1)" aria-label="Decrease quantity">−</button>
+                        <input type="number" id="quantity" name="quantity" min="1" max="99" value="1" readonly>
+                        <button type="button" class="stepper-btn" onclick="stepQuantity(1)" aria-label="Increase quantity">+</button>
+                    </div>
+                </div>
+
+                <div class="modal-price-summary">
+                    <span class="price-summary-label">Total Amount:</span>
+                    <span id="modalPrice" class="price-summary-val">₱0.00</span>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button>
+                    <button type="submit" class="btn-submit">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6h15l-1.5 9h-13z"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M6 6H3"/></svg>
+                        <span>Add to Cart</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Hidden dummy element for sandwichModal to avoid breaking any legacy references -->
+    <div id="sandwichModal" class="sr-only" aria-hidden="true"></div>
+
     <footer class="footer">
         <div class="footer-container">
             <section class="footer-section footer-about" aria-labelledby="footer-about-heading">
@@ -165,35 +719,5 @@
             <p>&copy; 2025 Vitaly Tea. All rights reserved.</p>
         </div>
     </footer>
-<div id="itemModal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2 id="modalItemName"></h2>
-        <form id="itemForm">
-            <label for="size">Size:</label>
-            <select id="size" name="size">
-            </select>
-
-            <label for="quantity">Quantity:</label>
-            <input type="number" id="quantity" name="quantity" min="1" value="1">
-
-            <p id="modalPrice"></p>
-            <button type="submit">Add to Cart</button>
-        </form>
-    </div>
-</div>
-<div id="sandwichModal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2 id="sandwichItemName"></h2>
-        <form id="sandwichForm">
-            <label for="quantity">Quantity:</label>
-            <input type="number" id="sandwichQuantity" name="quantity" min="1" value="1">
-
-            <p id="sandwichPrice"></p>
-            <button type="submit">Add to Cart</button>
-        </form>
-    </div>
-</div>
 </body>
 </html>
