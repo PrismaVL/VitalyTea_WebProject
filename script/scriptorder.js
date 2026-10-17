@@ -72,7 +72,7 @@ function displayCart() {
 
 function updateCheckoutFields() {
     const isPickup = getDeliverySelection()?.value === "pickup";
-    ["address", "postalCode", "city", "country"].forEach((id) => {
+    ["address", "postalCode", "city"].forEach((id) => {
         document.getElementById(id).required = !isPickup;
     });
 
@@ -81,6 +81,52 @@ function updateCheckoutFields() {
     cashOnDeliveryOption.hidden = isPickup;
     if (isPickup && cashOnDeliveryInput.checked) {
         document.querySelector('input[name="paymentMethod"][value="GCash"]').checked = true;
+    }
+}
+
+async function populateAccountDetails() {
+    const status = document.getElementById("accountCheckoutStatus");
+    const completeOrderButton = document.getElementById("completeOrderButton");
+
+    try {
+        const response = await fetch("../account/order-profile.php", {
+            credentials: "same-origin",
+            cache: "no-store"
+        });
+        const account = await response.json();
+
+        if (!response.ok) {
+            throw new Error(account.error || "Could not load your account details.");
+        }
+        if (!account.fullName || !/^\+63[0-9]{9,10}$/.test(account.phone)) {
+            throw new Error("Add your full name and a valid +63 phone number to your profile before checkout.");
+        }
+
+        document.getElementById("name").value = account.fullName;
+        document.getElementById("phone").value = account.phone;
+        document.getElementById("address").value = account.address;
+        document.getElementById("postalCode").value = account.postalCode;
+        const city = document.getElementById("city");
+        account.cities.forEach((name) => {
+            const option = document.createElement("option");
+            option.value = name;
+            option.textContent = name;
+            city.append(option);
+        });
+        if (account.cities.includes(account.city)) {
+            city.value = account.city;
+        }
+
+        status.hidden = true;
+        completeOrderButton.disabled = false;
+    } catch (error) {
+        status.textContent = `${error.message} `;
+        const link = document.createElement("a");
+        link.href = error.message.startsWith("Sign in")
+            ? "../account/login.php"
+            : "../account/profile.php";
+        link.textContent = error.message.startsWith("Sign in") ? "Sign in" : "Update profile";
+        status.append(link);
     }
 }
 
@@ -169,7 +215,9 @@ document.getElementById("orderForm").addEventListener("submit", (event) => {
 
     const address = delivery.value === "pickup"
         ? "Store Pickup"
-        : `${formData.get("address")}, ${formData.get("city")}, ${formData.get("postalCode")}, ${formData.get("country")}`;
+        : [formData.get("address"), formData.get("city"), formData.get("postalCode")]
+            .filter(Boolean)
+            .join(", ");
     const receiptDetails = `
         <section class="receipt-section receipt-customer" aria-label="Customer and delivery information">
             <h3>Delivery details</h3>
@@ -210,3 +258,4 @@ document.getElementById("orderForm").addEventListener("submit", (event) => {
 
 displayCart();
 updateCheckoutFields();
+populateAccountDetails();

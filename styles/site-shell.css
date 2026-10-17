@@ -17,6 +17,7 @@
 }
 
 .navbar {
+    box-sizing: border-box;
     position: relative;
     z-index: 5;
     display: flex;

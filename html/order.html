@@ -12,6 +12,7 @@
     <link rel="icon" type="image/x-icon" href="../images/LOGO2.png">
     <script defer src="../script/scriptorder.js"></script>
     <script defer src="../script/site-shell.js"></script>
+    <script defer src="../script/account-nav.js"></script>
 </head>
 <body class="order-page">
     <nav class="navbar" aria-label="Main navigation">
@@ -37,17 +38,18 @@
             <section class="form-section" aria-labelledby="order-heading">
             <form id="orderForm">
                 <h2 id="order-heading">Order Form</h2>
+                <p id="accountCheckoutStatus" class="checkout-account-status" role="status" aria-live="polite">Loading your account details…</p>
 
                 <fieldset class="checkout-section">
                     <legend>1. Shipping Information</legend>
                     <div class="checkout-fields">
                         <div class="form-group">
                             <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" autocomplete="name" required>
+                            <input type="text" id="name" name="name" autocomplete="name" readonly required>
                         </div>
                         <div class="form-group">
                             <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" autocomplete="tel" required>
+                            <input type="tel" id="phone" name="phone" autocomplete="tel" readonly required>
                         </div>
                         <div class="form-group address-field">
                             <label for="address">Address</label>
@@ -59,11 +61,9 @@
                         </div>
                         <div class="form-group">
                             <label for="city">City</label>
-                            <input type="text" id="city" name="city" autocomplete="address-level2" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="country">Country</label>
-                            <input type="text" id="country" name="country" autocomplete="country-name" value="Philippines" required>
+                            <select id="city" name="city" autocomplete="address-level2" required>
+                                <option value="">Choose a Metro Manila city</option>
+                            </select>
                         </div>
                         <div class="form-group checkout-notes">
                             <label for="orderNotes">Order Notes <span>(Optional)</span></label>
@@ -113,7 +113,7 @@
                     <div class="summary-row"><span>Subtotal</span><strong id="orderSubtotal">₱0.00</strong></div>
                     <div class="summary-row"><span>Shipping</span><strong id="orderShipping">₱150.00</strong></div>
                     <div class="summary-row summary-total"><span>Total</span><strong id="orderTotal">₱150.00</strong></div>
-                    <button type="submit" form="orderForm">Complete Order</button>
+                    <button id="completeOrderButton" type="submit" form="orderForm" disabled>Complete Order</button>
                 </section>
             </aside>
         </div>

@@ -190,12 +190,19 @@ body {
     margin-bottom: 5px;
 }
 
-.form-group input {
+.form-group :is(input, select) {
     width: 95%;
     padding: 10px;
     font-size: 1em;
     border: 1px solid #634C44;
     border-radius: 5px;
+    background: #fff;
+    color: #342a26;
+}
+
+.form-group input[readonly] {
+    background: #f5f1ec;
+    color: #71625c;
 }
 
 .form-section button {
@@ -213,6 +220,11 @@ body {
 
 .form-section button:hover {
     background-color: #4c6c64;
+}
+
+.cart-container button:disabled {
+    cursor: wait;
+    opacity: 0.65;
 }
 
 .image-section {
@@ -834,7 +846,7 @@ body {
         font-weight: 700;
     }
 
-    .order-page .form-group input {
+    .order-page .form-group :is(input, select) {
         display: block;
         width: 100%;
         min-height: 46px;
@@ -847,10 +859,15 @@ body {
         transition: border-color 160ms ease, box-shadow 160ms ease;
     }
 
-    .order-page .form-group input:focus {
+    .order-page .form-group :is(input, select):focus {
         border-color: #4c6c64;
         outline: none;
         box-shadow: 0 0 0 3px rgba(76, 108, 100, 0.16);
+    }
+
+    .order-page .form-group input[readonly] {
+        background: #f5f1ec;
+        color: #71625c;
     }
 
     .order-page .form-section button {
@@ -929,6 +946,21 @@ body {
 
 .order-page .checkout-fields .form-group {
     min-width: 0;
+}
+
+.order-page .checkout-account-status {
+    margin: 0 0 1rem;
+    padding: 0.75rem 0.9rem;
+    border: 1px solid rgba(76, 108, 100, 0.25);
+    border-radius: 8px;
+    background: rgba(76, 108, 100, 0.08);
+    color: #31574d;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.order-page .checkout-account-status[hidden] {
+    display: none;
 }
 
 .order-page .checkout-fields .address-field,
@@ -1083,7 +1115,7 @@ body {
     margin-top: 0.7rem;
 }
 
-.order-page :is(input, textarea, button, a):focus-visible {
+.order-page :is(input, select, textarea, button, a):focus-visible {
     outline: 3px solid rgba(76, 108, 100, 0.55);
     outline-offset: 2px;
 }
@@ -1268,6 +1300,7 @@ body {
 }
 
 .order-page input,
+.order-page select,
 .order-page textarea,
 .order-page button {
     font-family: var(--font-body);
