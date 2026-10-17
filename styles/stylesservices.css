@@ -1,5 +1,7 @@
 :root {
     color-scheme: light;
+    --font-display: "DM Serif Display", Georgia, "Times New Roman", serif;
+    --font-body: "DM Sans", "Trebuchet MS", "Lucida Sans Unicode", Arial, sans-serif;
     --cream: #f9f6f2;
     --plum: #634c60;
     --brown: #634c44;
@@ -35,7 +37,19 @@ body {
     margin: 0;
     background: var(--cream);
     color: var(--ink);
-    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", Arial, sans-serif;
+    font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+.service-label strong {
+    font-family: var(--font-display);
+}
+
+p {
+    font-family: var(--font-body);
 }
 
 a {
@@ -178,9 +192,8 @@ button:focus-visible {
 .services-intro h1 {
     margin: 0;
     color: var(--ink);
-    font-family: Georgia, "Times New Roman", serif;
     font-size: clamp(2.5rem, 5.4vw, 5rem);
-    font-weight: 500;
+    font-weight: 400;
     letter-spacing: -0.045em;
     line-height: 1.03;
 }
@@ -326,9 +339,8 @@ button:focus-visible {
 }
 
 .service-label strong {
-    font-family: Georgia, "Times New Roman", serif;
     font-size: clamp(1.5rem, 2.5vw, 2rem);
-    font-weight: 500;
+    font-weight: 400;
     line-height: 1;
 }
 
@@ -385,9 +397,8 @@ button:focus-visible {
 .service-detail-heading h2 {
     margin: 0;
     color: var(--plum);
-    font-family: Georgia, "Times New Roman", serif;
     font-size: clamp(2rem, 4vw, 3.25rem);
-    font-weight: 500;
+    font-weight: 400;
     letter-spacing: -0.03em;
 }
 
@@ -405,9 +416,8 @@ button:focus-visible {
 .detail-group > h3 {
     margin: 0 0 1rem;
     color: var(--brown);
-    font-family: Georgia, "Times New Roman", serif;
     font-size: 1.45rem;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .detail-grid {
@@ -440,7 +450,6 @@ button:focus-visible {
 .detail-card h4 {
     margin: 1rem 0 0.4rem;
     color: var(--plum);
-    font-family: Georgia, "Times New Roman", serif;
     font-size: 1.15rem;
 }
 
@@ -470,7 +479,6 @@ button:focus-visible {
 .footer-section h2 {
     margin: 0 0 0.9rem;
     color: #fff;
-    font-family: Georgia, "Times New Roman", serif;
     font-size: 1.2rem;
 }
 
