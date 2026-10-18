@@ -519,6 +519,33 @@ body {
     line-height: 1.45;
 }
 
+.confirmation-prompt,
+.receipt-order-number {
+    margin: 0 0 0.85rem;
+    color: #5f504a;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.receipt-order-number strong {
+    color: #4c6c64;
+}
+
+.order-submission-error {
+    margin: 0.9rem 0 0;
+    padding: 0.75rem 0.85rem;
+    border: 1px solid #e9c8bf;
+    border-radius: 8px;
+    background: #fff4f0;
+    color: #873f30;
+    font-size: 0.86rem;
+    line-height: 1.45;
+}
+
+.order-submission-error[hidden] {
+    display: none;
+}
+
 .receipt-close-button {
     display: block;
     width: 100%;

@@ -5,6 +5,8 @@ account_require_authentication();
 $errors = [];
 $success = '';
 $welcome = isset($_GET['welcome']) && $_GET['welcome'] === '1';
+$orders = [];
+$orderItems = [];
 
 try {
     $statement = account_db()->prepare(
@@ -13,6 +15,26 @@ try {
     );
     $statement->execute(['id' => $_SESSION['account_user_id']]);
     $profile = $statement->fetch();
+    $ordersStatement = account_db()->prepare(
+        'SELECT id, order_number, address, city, delivery_method, payment_method,
+                subtotal, delivery_fee, total, status, created_at
+         FROM orders WHERE user_id = :id ORDER BY created_at DESC, id DESC LIMIT 20'
+    );
+    $ordersStatement->execute(['id' => $_SESSION['account_user_id']]);
+    $orders = $ordersStatement->fetchAll();
+
+    if ($orders !== []) {
+        $orderIds = array_column($orders, 'id');
+        $placeholders = implode(',', array_fill(0, count($orderIds), '?'));
+        $itemsStatement = account_db()->prepare(
+            "SELECT order_id, item_name, item_size, quantity, unit_price, line_total
+             FROM order_items WHERE order_id IN ({$placeholders}) ORDER BY id"
+        );
+        $itemsStatement->execute($orderIds);
+        foreach ($itemsStatement->fetchAll() as $item) {
+            $orderItems[$item['order_id']][] = $item;
+        }
+    }
 } catch (PDOException $exception) {
     error_log('Vitaly Tea profile lookup failed: ' . $exception->getMessage());
     http_response_code(503);
@@ -152,6 +174,44 @@ require __DIR__ . '/layout-top.php';
                 </div>
                 <button class="account-primary-button" type="submit">Save profile</button>
             </form>
+        </section>
+
+        <section class="account-card account-history-card" aria-labelledby="order-history-heading">
+            <p class="account-eyebrow">Your past purchases</p>
+            <h2 id="order-history-heading">Order history</h2>
+            <?php if ($orders === []): ?>
+                <p class="account-intro account-history-empty">Your completed orders will appear here.</p>
+            <?php else: ?>
+                <div class="account-order-list">
+                    <?php foreach ($orders as $order): ?>
+                        <details class="account-order">
+                            <summary>
+                                <span>
+                                    <strong><?= account_escape($order['order_number']) ?></strong>
+                                    <small><?= account_escape(date('M j, Y · g:i A', strtotime($order['created_at']))) ?></small>
+                                </span>
+                                <span class="account-order-summary">
+                                    <strong>₱<?= number_format((float) $order['total'], 2) ?></strong>
+                                    <small><?= account_escape($order['status']) ?></small>
+                                </span>
+                            </summary>
+                            <div class="account-order-details">
+                                <p><strong>Delivery:</strong> <?= account_escape(ucfirst($order['delivery_method'])) ?><?= $order['delivery_method'] === 'pickup' ? '' : ' · ' . account_escape(trim($order['address'] . ', ' . ($order['city'] ?? ''))) ?></p>
+                                <p><strong>Payment:</strong> <?= account_escape($order['payment_method']) ?></p>
+                                <ul>
+                                    <?php foreach ($orderItems[$order['id']] ?? [] as $item): ?>
+                                        <li>
+                                            <span><?= account_escape($item['item_name']) ?><?= $item['item_size'] ? ' (' . account_escape($item['item_size']) . ')' : '' ?> × <?= (int) $item['quantity'] ?></span>
+                                            <strong>₱<?= number_format((float) $item['line_total'], 2) ?></strong>
+                                        </li>
+                                    <?php endforeach; ?>
+                                </ul>
+                                <p class="account-order-total"><span>Subtotal + delivery</span><strong>₱<?= number_format((float) $order['subtotal'], 2) ?> + ₱<?= number_format((float) $order['delivery_fee'], 2) ?></strong></p>
+                            </div>
+                        </details>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
         </section>
     <?php else: ?>
         <section class="account-card" aria-labelledby="account-heading">

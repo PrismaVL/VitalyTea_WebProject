@@ -98,6 +98,11 @@ function account_csrf_token(): string
 function account_csrf_is_valid(): bool
 {
     $submitted = account_post('csrf_token');
+    return account_csrf_token_is_valid($submitted);
+}
+
+function account_csrf_token_is_valid(string $submitted): bool
+{
     $stored = $_SESSION['account_csrf'] ?? '';
 
     return is_string($stored) && $stored !== '' && hash_equals($stored, $submitted);

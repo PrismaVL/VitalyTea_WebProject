@@ -221,6 +221,103 @@ body.account-page {
     margin-bottom: 0;
 }
 
+.account-history-card {
+    margin-top: 1.5rem;
+}
+
+.account-history-card h2 {
+    margin: 0.45rem 0 1rem;
+    color: #342a26;
+    font-family: var(--shell-font-display);
+    font-size: 1.8rem;
+    font-weight: 400;
+}
+
+.account-history-empty {
+    margin-bottom: 0;
+}
+
+.account-order-list {
+    display: grid;
+    gap: 0.7rem;
+}
+
+.account-order {
+    border: 1px solid rgba(99, 76, 68, 0.16);
+    border-radius: 10px;
+    background: #fff;
+}
+
+.account-order summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.9rem 1rem;
+    cursor: pointer;
+    list-style: none;
+}
+
+.account-order summary::-webkit-details-marker {
+    display: none;
+}
+
+.account-order summary > span,
+.account-order-summary {
+    display: grid;
+    gap: 0.2rem;
+}
+
+.account-order summary strong {
+    color: #342a26;
+    font-size: 0.92rem;
+}
+
+.account-order summary small {
+    color: #8f7872;
+    font-size: 0.78rem;
+}
+
+.account-order-summary {
+    text-align: right;
+}
+
+.account-order-details {
+    padding: 0 1rem 1rem;
+    color: #5f504a;
+    font-size: 0.86rem;
+    line-height: 1.5;
+}
+
+.account-order-details > p {
+    margin: 0.35rem 0;
+}
+
+.account-order-details ul {
+    display: grid;
+    gap: 0.4rem;
+    margin: 0.8rem 0;
+    padding: 0;
+    list-style: none;
+}
+
+.account-order-details li,
+.account-order-total {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.account-order-details li strong,
+.account-order-total strong {
+    white-space: nowrap;
+}
+
+.account-order-total {
+    padding-top: 0.65rem;
+    border-top: 1px solid rgba(99, 76, 68, 0.14);
+}
+
 .account-page :is(input, select, button, a):focus-visible {
     outline: 3px solid rgba(76, 108, 100, 0.45);
     outline-offset: 3px;

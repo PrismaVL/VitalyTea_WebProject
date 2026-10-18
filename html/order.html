@@ -63,7 +63,7 @@
                         </div>
                         <div class="form-group checkout-notes">
                             <label for="orderNotes">Order Notes <span>(Optional)</span></label>
-                            <textarea id="orderNotes" name="orderNotes" rows="3" placeholder="Special instructions for delivery..."></textarea>
+                            <textarea id="orderNotes" name="orderNotes" rows="3" maxlength="1000" placeholder="Special instructions for delivery..."></textarea>
                         </div>
                     </div>
                 </fieldset>
@@ -144,10 +144,12 @@
     <div id="receiptModal" class="modal" aria-hidden="true">
         <section class="modal-content" role="dialog" aria-modal="true" aria-labelledby="receiptHeading" tabindex="-1">
             <button class="close" type="button" aria-label="Close receipt" onclick="closeModal()">&times;</button>
-            <p class="receipt-eyebrow">Thank you for your order</p>
-            <h2 id="receiptHeading">Order Receipt</h2>
+            <p id="receiptEyebrow" class="receipt-eyebrow">Review your order</p>
+            <h2 id="receiptHeading">Confirm your order</h2>
             <div id="receiptDetails"></div>
-            <button class="receipt-close-button" type="button" onclick="closeModal()">Done</button>
+            <p id="orderSubmissionError" class="order-submission-error" role="alert" hidden></p>
+            <button id="confirmOrderButton" class="receipt-close-button" type="button">Confirm &amp; place order</button>
+            <button id="receiptDoneButton" class="receipt-close-button" type="button" onclick="closeModal()" hidden>Done</button>
         </section>
     </div>
 </body>

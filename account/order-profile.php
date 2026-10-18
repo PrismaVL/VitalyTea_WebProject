@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/bootstrap.php';
+require_once __DIR__ . '/menu-catalog.php';
 
 header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: no-store, private');
@@ -42,4 +43,6 @@ echo json_encode([
     'address' => $profile['address'] ?? '',
     'city' => $profile['city'] ?? '',
     'cities' => account_cities(),
+    'catalog' => account_menu_catalog(),
+    'csrfToken' => account_csrf_token(),
 ], JSON_THROW_ON_ERROR);
