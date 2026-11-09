@@ -87,7 +87,6 @@
     margin: 0;
     padding: 0;
     list-style: none;
-    counter-reset: reference;
 }
 
 .reference li {
@@ -97,30 +96,12 @@
     align-items: center;
     justify-content: space-between;
     gap: 0.9rem;
-    padding: 1rem 1rem 1rem 3.5rem;
+    padding: 1rem;
     border: 1px solid rgba(99, 76, 68, 0.1);
     border-radius: 13px;
     background: #fff;
     animation: credits-arrive 550ms cubic-bezier(0.2, 0.7, 0.25, 1) both;
-    counter-increment: reference;
     transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
-}
-
-.reference li::before {
-    position: absolute;
-    top: 50%;
-    left: 0.9rem;
-    display: grid;
-    width: 1.8rem;
-    height: 1.8rem;
-    place-items: center;
-    border-radius: 50%;
-    background: #f0f5f1;
-    color: var(--shell-green);
-    content: counter(reference, decimal-leading-zero);
-    font-size: 0.7rem;
-    font-weight: 700;
-    transform: translateY(-50%);
 }
 
 .reference li:nth-child(2) { animation-delay: 80ms; }
