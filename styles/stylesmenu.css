@@ -92,7 +92,7 @@ body.menu-page input {
 .menu-hero-header {
     max-width: 820px;
     width: calc(100% - 4rem);
-    margin: clamp(3.5rem, 8vh, 6.5rem) auto clamp(2.5rem, 5vw, 4rem);
+    margin: clamp(2rem, 5vh, 4rem) auto 1.25rem;
     text-align: center;
     animation: arrive 650ms cubic-bezier(0.2, 0.7, 0.25, 1) both;
 }
@@ -157,7 +157,7 @@ body.menu-page input {
     gap: clamp(1.25rem, 2.5vw, 2.25rem);
     max-width: 1320px;
     width: 94%;
-    margin: 1.5rem auto 2rem auto;
+    margin: 0.75rem auto 2rem auto;
     align-items: stretch;
     position: relative;
     z-index: 1;
@@ -1143,7 +1143,7 @@ body.menu-page input {
         grid-template-columns: 1fr;
         max-width: 440px;
         gap: 3rem;
-        margin-top: 1.5rem;
+        margin-top: 0.5rem;
     }
 
     .carousel {
@@ -1175,8 +1175,8 @@ body.menu-page input {
 @media (max-width: 480px) {
     .menu-hero-header {
         width: calc(100% - 2.5rem);
-        margin-top: 3.5rem;
-        margin-bottom: 2rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
     }
 
     .menu-hero-title {
